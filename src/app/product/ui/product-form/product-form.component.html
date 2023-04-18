@@ -1,0 +1,14 @@
+<div class="product--form flex flex-column px-4 py-5">
+  <form [formGroup]="productForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" maxlength="250" name="name" id="name" placeholder="Nombre del product">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+    <div class="block"></div>
+    <mat-error *ngIf="productForm.controls['name'].touched || productForm.controls['name'].dirty ? !productForm.controls['name'].valid : false">
+      Solo letras y números, max 250 caracteres, sin caracteres especiales.
+    </mat-error>
+    {{productForm.controls['name'].valid}}
+  </form>
+</div>

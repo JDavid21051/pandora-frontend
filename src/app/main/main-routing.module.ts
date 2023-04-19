@@ -4,7 +4,7 @@ import {RouterModule} from "@angular/router";
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(MAIN_ROUTE_CONST)],
+  imports: [RouterModule.forChild(MAIN_ROUTE_CONST)],
   exports: [
     RouterModule
   ]

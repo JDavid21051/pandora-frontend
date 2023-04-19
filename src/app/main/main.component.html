@@ -1,16 +1,17 @@
 <mat-drawer-container class="w-12 h-screen" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
+  <mat-drawer #drawerLeft mode="side">
+    <div class="main--sidebar--content p-3 w-10rem max-w-12rem">
+      <p>Auto-resizing sidenav</p>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </div>
   </mat-drawer>
-
-  <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
-      Mostrar sidebar
-    </button>
+  <div>
+    <app-header [shoppingCarProduct]="shoppingCarProduct"></app-header>
+    <div class="px-5 py-3">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 
 </mat-drawer-container>

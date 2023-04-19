@@ -10,18 +10,15 @@ export class ProductFormComponent implements OnInit {
   regex = '[a-zA-Z0-9áéíóúÁÉÍÓÚ -]{3,250}';
 
   // data
-  productForm: FormGroup;
+  productForm!: FormGroup;
 
   constructor(private readonly builder: FormBuilder) {
-    this.productForm = builder.group({
-      name: [null, [Validators.required, Validators.pattern(this.regex)]],
-      /*price: [null],
-      count: [null],
-      description: [null]*/
-    })
   }
 
   ngOnInit(): void {
+    this.productForm = this.builder.group({
+      productName: [null, [Validators.required, Validators.pattern(this.regex)]],
+    });
   }
 
 

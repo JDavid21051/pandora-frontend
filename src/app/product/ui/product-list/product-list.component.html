@@ -2,30 +2,5 @@
   Listado de casas
 </p>
 <div class="product--grid">
-  <div *ngFor="let product of productList; let i = index" class="product--card">
-    <div class="img-content relative">
-      <img [src]="product.image_url" [alt]="product.image_alt" width="100%">
-      <div class="rating--content absolute right-0 w-full">
-        <span>
-          <i class="fa fa-shopping-cart absolute ml-2 text-4xl" aria-hidden="true"></i>
-          <ngx-star-rating [(ngModel)]="product.image_type" [id]="'rating' +i"></ngx-star-rating>
-        </span>
-      </div>
-    </div>
-    <div class="desc-content flex flex-row justify-content-between align-items-center">
-      <span class="product--text block">
-        <span class="block">
-          {{product.name}}
-        </span>
-        <span class="desc--text block">
-          <p>
-          {{product.description}}
-          </p>
-        </span>
-      </span>
-      <div class="product--btn--add">
-        <button>A</button>
-      </div>
-    </div>
-  </div>
-</div>
+  <app-ul-card *ngFor="let product of productList; let i = index"
+               [product]="product" [productIndex]="i" ></app-ul-card></div>

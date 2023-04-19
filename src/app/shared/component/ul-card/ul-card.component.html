@@ -1,0 +1,29 @@
+<div class="product--card">
+  <div class="img-content relative">
+    <img [src]="product.image_url" [alt]="product.image_alt" width="100%">
+    <div class="rating--content absolute right-0 w-full">
+        <span>
+          <span></span>
+          <ngx-star-rating [(ngModel)]="product.image_type" [name]="'rating' + productIndex"
+                           [id]="'rating' +productIndex"></ngx-star-rating>
+        </span>
+    </div>
+  </div>
+  <div class="desc-content h-5rem flex gap-3 flex-row justify-content-between align-items-start">
+      <span class="product--text block">
+        <span class="block">
+          {{product.name}}
+        </span>
+        <span class="desc--text block">
+          <p>
+          {{product.description}}
+          </p>
+        </span>
+      </span>
+    <div class="product--btn--add">
+      <button mat-mini-fab color="accent">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

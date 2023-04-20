@@ -19,7 +19,7 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {NgxStarRatingModule} from "ngx-star-rating";
-import {BdSidenavService} from "./shared/service";
+import {BdSidenavService, ShoppingCarService} from "./shared/service";
 import {UlConfirmComponent} from './shared/component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {ShowTagPipe} from './shared/pipe';
@@ -53,10 +53,10 @@ import {ShoppingCarModule} from "./shopping-car";
     MatListModule,
     NgxStarRatingModule,
     MatDialogModule,
+    ShoppingCarModule,
     AuthModule,
-    ShoppingCarModule
   ],
-  providers: [BdSidenavService, ShowTagPipe, OutlineDirective],
+  providers: [BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

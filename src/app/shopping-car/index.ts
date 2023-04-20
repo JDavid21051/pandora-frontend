@@ -13,4 +13,3 @@
  */
 
 export * from './shopping-car.module';
-export * from './ui/shopping-card-list/shopping-card-list.component';

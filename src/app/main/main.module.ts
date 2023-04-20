@@ -41,7 +41,7 @@ import {OutlineDirective} from "../shared/directive/outline.directive";
     MatBadgeModule,
     NgOptimizedImage
   ],
-  providers: [ProductListRepository, BdSidenavService, ShoppingCarService, ShowTagPipe, OutlineDirective]
+  providers: [ProductListRepository, BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService]
 })
 export class MainModule {
 }

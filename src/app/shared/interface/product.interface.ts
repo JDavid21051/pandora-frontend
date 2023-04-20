@@ -3,8 +3,8 @@ import {ProductPromoTypeEnum} from '../enum';
 export interface ProductInterface {
   name: string;
   id: number;
-  price: [number, number];
-  category: number;
+  price: number;
+  category: string;
   promo_value: null | number;
   promo_value_unit: null | ProductPromoTypeEnum;
   description: string;

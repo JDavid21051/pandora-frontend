@@ -9,38 +9,6 @@
     padding: 0 !important;
   }
 
-  & .product--card {
-    height: 22rem;
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
-
-    & .img-content {
-      & img {
-        width: 100% !important;
-        height: 70% !important;
-        border-radius: 16px 16px 0 0;
-      }
-
-      & .rating--content {
-        bottom: 5px;
-        background: var(--rating--bg);
-        & i {
-          color: var(--white);
-          font-size: 2rem !important;
-          bottom: 10px;
-        }
-      }
-    }
-
-    & .desc-content {
-      padding: 8px;
-      & .product--text {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        width: 220px;
-      }
-    }
-  }
 }
 
 @media screen and (min-width: 40em) {

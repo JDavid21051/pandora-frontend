@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {NgxStarRatingModule} from 'ngx-star-rating';
 import {SharedModule} from '../shared/module';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {SharedModule} from '../shared/module';
     MatFormFieldModule,
     MatButtonModule,
     NgxStarRatingModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
   ],
   exports: [
     ProductListComponent,

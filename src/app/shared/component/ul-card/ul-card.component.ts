@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, Output} from '@angular/core';
 import {ProductInterface} from "../../interface";
 
 @Component({
@@ -9,6 +9,7 @@ import {ProductInterface} from "../../interface";
 export class UlCardComponent implements AfterViewInit {
   @Input() product!: ProductInterface;
   @Input() productIndex = -1;
+  @Output() eventAdd: EventEmitter<ProductInterface> = new EventEmitter<ProductInterface>();
   isLoading = true;
 
   constructor() {
@@ -16,6 +17,10 @@ export class UlCardComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.isLoading = false
+  }
+
+  onClickAdd(): void {
+    this.eventAdd.emit(this.product);
   }
 
 }

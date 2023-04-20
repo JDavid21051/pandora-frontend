@@ -1,7 +1,7 @@
 <div class="product--card">
-  <div class="img-content relative">
+  <div class="img-content h-17rem relative">
     <img [src]="product.image_url" [alt]="product.image_alt" width="100%">
-    <div class="rating--content absolute right-0 w-full">
+    <div class="rating--content absolute right-0 bottom-0 w-full">
         <span>
           <span></span>
           <ngx-star-rating [(ngModel)]="product.image_type" [name]="'rating' + productIndex"
@@ -9,19 +9,30 @@
         </span>
     </div>
   </div>
-  <div class="desc-content h-5rem flex gap-3 flex-row justify-content-between align-items-start">
-      <span class="product--text block">
-        <span class="block">
-          {{product.name}}
+  <div class="desc-content h-5rem flex gap-3 flex-row justify-content-between align-items-end">
+    <span class="product--text flex w-10 h-5rem">
+        <span class="block price--product w-3">
+          <div class="price--symbol flex h-5rem w-12 align-items-center justify-content-center">
+            <mat-icon aria-hidden="false" aria-label="icono de dollar" fontIcon="attach_money"></mat-icon>
+            <label>{{product.price}}</label>
+          </div>
+          <div class="price--show">
+          </div>
         </span>
-        <span class="desc--text block">
-          <p>
-          {{product.description}}
-          </p>
-        </span>
+        <div class="flex text--product w-9 flex-column justify-content-end px-3">
+          <span class="block">
+            {{product.name}}
+            <div [class]="'product--tag'" [style.background-color]="(product.category| showTag)"></div>
+          </span>
+          <span class="desc--text block text-xs">
+            <p>
+            {{product.description}}
+            </p>
+          </span>
+        </div>
       </span>
-    <div class="product--btn--add">
-      <button mat-mini-fab color="accent">
+    <div class="product--btn--add w-2 pb-3 pr-3">
+      <button mat-mini-fab color="primary" (click)="onClickAdd()">
         <mat-icon>add</mat-icon>
       </button>
     </div>

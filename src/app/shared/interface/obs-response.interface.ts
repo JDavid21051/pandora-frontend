@@ -6,10 +6,15 @@
 /*
  * Project:      pandora-frontend
  * Developed by: Juan David Pelaez Cumbe
- * Date:         19/04/23 - 3:15 PM
- * Module name:  index.ts
- * File name:    index.ts
+ * Date:         19/04/23 - 4:39 PM
+ * Module name:  obs-response.interface.ts
+ * File name:    obs-response.interface.ts
  * IDE:          WebStorm
  */
-export * from './ul-card/ul-card.component';
-export * from './ul-confirm/ul-confirm.component';
+
+export interface ObsResponseInterface<T> {
+  status: 0 | 1 | 2,
+  body: T | null,
+  success: boolean,
+  error: string
+}

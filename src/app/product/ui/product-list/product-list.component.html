@@ -3,4 +3,5 @@
 </p>
 <div class="product--grid">
   <app-ul-card *ngFor="let product of productList; let i = index"
-               [product]="product" [productIndex]="i" ></app-ul-card></div>
+               [product]="product" [productIndex]="i"
+               (eventAdd)="openConfirm($event)"></app-ul-card></div>

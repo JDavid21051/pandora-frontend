@@ -8,8 +8,13 @@ import {NgxStarRatingModule} from "ngx-star-rating";
 // component
 import {UlCardComponent} from "../../component";
 
+import {ShowTagPipe} from 'src/app/shared/pipe/show-tag.pipe';
+
 @NgModule({
-  declarations: [UlCardComponent],
+  declarations: [
+    UlCardComponent,
+    ShowTagPipe,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,6 +22,7 @@ import {UlCardComponent} from "../../component";
     MatIconModule,
     NgxStarRatingModule,
   ],
+  providers: [ShowTagPipe],
   exports: [UlCardComponent]
 })
 export class SharedModule {

@@ -1,0 +1,11 @@
+<div class="ul--confirm flex flex-column w-15rem min-h-7rem h-auto gap-2">
+  <div class="ul--confirm--body flex flex-column align-items-center">
+    <p class="text-2xl"><strong>{{context.title}}</strong></p>
+    <p class="text-center">{{context.paragraph}}</p>
+  </div>
+  <div class="ul--confirm--footer flex justify-content-between w-12">
+    <button mat-raised-button color="warn" (click)="onClickClose(false)">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="onClickClose(true)">Aceptar</button>
+  </div>
+
+</div>

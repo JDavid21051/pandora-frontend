@@ -1,7 +1,10 @@
 import {HttpResponse} from '@angular/common/http';
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ProductInterface} from 'src/app/shared/interface';
 import {ProductListRepository} from "../../../service";
+import {ShoppingCarService} from "../../../shared/service";
+import {MatDialog} from "@angular/material/dialog";
+import {UlConfirmComponent} from "../../../shared/component";
 
 @Component({
   selector: 'app-product-list',
@@ -9,9 +12,12 @@ import {ProductListRepository} from "../../../service";
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
+  @Output() shoppingControl: EventEmitter<ProductInterface> = new EventEmitter<ProductInterface>();
   productList: ProductInterface[] = [];
 
-  constructor(private readonly service: ProductListRepository) {
+  constructor(private readonly service: ProductListRepository,
+              private readonly shoppingCarService: ShoppingCarService,
+              private readonly dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -23,6 +29,8 @@ export class ProductListComponent implements OnInit {
       next: (response: HttpResponse<ProductInterface[]>) => {
         if (response.status === 200 && response.body !== null) {
           this.productList = response.body;
+          this.productList.map(product => product.price = (Math.floor(100000 + Math.random() * 900000)));
+          console.log(this.productList);
           this.formatProductList();
         }
       },
@@ -38,7 +46,34 @@ export class ProductListComponent implements OnInit {
       }
     });
     this.productList.splice(10, 90);
-    console.log(this.productList);
+  }
+
+  onClickAdd(product: ProductInterface): void {
+    this.shoppingCarService.addProduct(product).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (errorResponse) => {
+        console.log(errorResponse);
+      },
+    })
+  }
+
+  openConfirm(product: ProductInterface): any {
+    const confirmRef = this.dialog.open(UlConfirmComponent, {
+      data: {
+        status: 'primary',
+        title: 'Agregar al carrito',
+        paragraph: 'Esta seguro de agregar este producto al carrito',
+      },
+    });
+    confirmRef.afterClosed().subscribe({
+      next: (response: boolean) => {
+        if (response) {
+          this.onClickAdd(product)
+        }
+      }
+    })
   }
 
 }

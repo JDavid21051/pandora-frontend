@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {BdSidenavService} from "../shared/service/bd-sidenav-service";
+import {BdSidenavService, ShoppingCarService} from "../shared/service";
 import {MatDrawer} from "@angular/material/sidenav";
 import {ProductInterface} from "../shared/interface";
 
@@ -15,7 +15,18 @@ export class MainComponent implements AfterViewInit {
   // control
   showFiller = false;
 
-  constructor(private readonly sidebar: BdSidenavService) {
+  constructor(private readonly sidebar: BdSidenavService,
+              private readonly shoppingCarService : ShoppingCarService) {
+    this.shoppingCarService.onListChange.subscribe({
+      next: (response) => {
+        this.shoppingCarProduct = response;
+        this.shoppingCarProduct = [...this.shoppingCarProduct];
+        console.log(this.shoppingCarProduct)
+      },
+      error: (errorResponse) => {
+        console.log(errorResponse)
+      },
+    });
   }
 
   ngAfterViewInit() {

@@ -1,29 +1,8 @@
 .product--grid {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  gap: 1rem;
+  grid-auto-rows: 22rem;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
   transition: all .3s linear;
-
-  & h4, p, label {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-}
-
-@media screen and (min-width: 40em) {
-  .product--grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 12px;
-    height: 18rem;
-  }
-}
-
-@media screen and (min-width: 60em) {
-  .product--grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 12px;
-  }
 }

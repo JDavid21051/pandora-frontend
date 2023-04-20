@@ -18,6 +18,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatBadgeModule} from '@angular/material/badge';
 import {ShoppingCarService} from '../shared/service';
 import {ShowTagPipe} from "../shared/pipe";
+import {OutlineDirective} from "../shared/directive/outline.directive";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import {ShowTagPipe} from "../shared/pipe";
     MatBadgeModule,
     NgOptimizedImage
   ],
-  providers: [ProductListRepository, BdSidenavService, ShoppingCarService, ShowTagPipe]
+  providers: [ProductListRepository, BdSidenavService, ShoppingCarService, ShowTagPipe, OutlineDirective]
 })
 export class MainModule {
 }

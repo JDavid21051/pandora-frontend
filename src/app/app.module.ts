@@ -10,28 +10,28 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {HttpClientModule} from "@angular/common/http";
-import {PanelComponent} from './panel/panel.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {LayoutModule} from '@angular/cdk/layout';
-import {FaunoComponent} from './fauno/fauno.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {NgxStarRatingModule} from "ngx-star-rating";
 import {BdSidenavService} from "./shared/service";
 import {UlConfirmComponent} from './shared/component';
 import {MatDialogModule} from "@angular/material/dialog";
-import { ShowTagPipe } from './shared/pipe';
+import {ShowTagPipe} from './shared/pipe';
+import {OutlineDirective} from './shared/directive/outline.directive';
+import {AuthModule} from "./auth";
+import {ShoppingCarModule} from "./shopping-car";
 
 @NgModule({
   declarations: [
     AppComponent,
-    PanelComponent,
-    FaunoComponent,
-    UlConfirmComponent
+    UlConfirmComponent,
+    OutlineDirective
   ],
   imports: [
     BrowserModule,
@@ -52,9 +52,11 @@ import { ShowTagPipe } from './shared/pipe';
     MatToolbarModule,
     MatListModule,
     NgxStarRatingModule,
-    MatDialogModule
+    MatDialogModule,
+    AuthModule,
+    ShoppingCarModule
   ],
-  providers: [BdSidenavService, ShowTagPipe],
+  providers: [BdSidenavService, ShowTagPipe, OutlineDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule {

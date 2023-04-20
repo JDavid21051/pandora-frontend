@@ -8,6 +8,7 @@
   right: 0;
 }
 
+
 .example-is-mobile .example-toolbar {
   position: fixed;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
@@ -29,5 +30,3 @@ h1.example-app-name {
      `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto;
 }
-
-/*# sourceMappingURL=main.component.css.map */

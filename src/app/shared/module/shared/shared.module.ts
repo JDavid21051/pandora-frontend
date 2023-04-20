@@ -9,6 +9,7 @@ import {NgxStarRatingModule} from "ngx-star-rating";
 import {UlCardComponent} from "../../component";
 
 import {ShowTagPipe} from 'src/app/shared/pipe/show-tag.pipe';
+import {OutlineDirective} from "../../directive/outline.directive";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import {ShowTagPipe} from 'src/app/shared/pipe/show-tag.pipe';
     MatIconModule,
     NgxStarRatingModule,
   ],
-  providers: [ShowTagPipe],
+  providers: [ShowTagPipe, OutlineDirective],
   exports: [UlCardComponent]
 })
 export class SharedModule {

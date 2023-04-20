@@ -1,7 +1,8 @@
-<p class="text-xl">
+<p class="text-2xl">
   Listado de casas
 </p>
-<div class="product--grid">
-  <app-ul-card *ngFor="let product of productList; let i = index"
-               [product]="product" [productIndex]="i"
-               (eventAdd)="openConfirm($event)"></app-ul-card></div>
+<div class="product--grid w-12">
+  <ulCard *ngFor="let product of productList; let i = index" class="h-22rem overflow-hidden card__shadow card__radius"
+          [product]="product" [productIndex]="i"
+          (eventAdd)="openConfirm($event)"></ulCard>
+</div>

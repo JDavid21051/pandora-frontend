@@ -2,7 +2,7 @@ import {AfterViewInit, Component, EventEmitter, Input, Output} from '@angular/co
 import {ProductInterface} from "../../interface";
 
 @Component({
-  selector: 'app-ul-card',
+  selector: 'ulCard',
   templateUrl: './ul-card.component.html',
   styleUrls: ['./ul-card.component.scss']
 })

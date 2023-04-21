@@ -1,0 +1,28 @@
+/*
+ * Developed by CQ Inversiones SAS. Copyright ©. 2023 - 2024. All rights reserved.
+ * Desarrollado por CQ Inversiones SAS. Copyright ©. 2023 - 2024. Todos los derechos reservados.
+ */
+
+/*
+ * Project:      pandora-frontend
+ * Developed by: Juan David Pelaez Cumbe
+ * Date:         21/04/23 - 1:16 PM
+ * Module name:  _snackbar
+ * File name:    _snackbar.scss
+ * IDE:          WebStorm
+ */
+
+.snack {
+  font-weight: 600;
+}
+
+.snack--success {
+  border: 2px solid var(--base-gray-800);
+  background: var(--base-success-500);
+}
+
+.snack--error {
+  border: 2px solid var(--base-gray-800);
+  background: var(--base-warn-500);
+  font-weight: 600;
+}

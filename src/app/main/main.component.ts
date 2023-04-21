@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UlBaseComponent} from "../shared/component";
 import {NgxSpinnerService} from "ngx-spinner";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatButtonToggleChange} from "@angular/material/button-toggle";
 
 @Component({
   selector: 'app-main',
@@ -18,9 +19,16 @@ export class MainComponent extends UlBaseComponent implements OnInit, AfterViewI
   // data
   shoppingCarProduct: ProductInterface[] = [];
   filterForm: FormGroup;
+  mobileQuery!: MediaQueryList;
+  categoryList: any[] = [];
+  tagList: any[] = [];
+  promoList: any[] = [];
   // control
   showFiller = false;
-  mobileQuery!: MediaQueryList;
+  panelOpenState = false;
+  filteredCategory = false;
+  filteredTag = false;
+  filteredPromo = false;
   private readonly _mobileQueryListener: () => void;
 
   constructor(private readonly sidebar: BdSidenavService,
@@ -43,9 +51,10 @@ export class MainComponent extends UlBaseComponent implements OnInit, AfterViewI
       next: (response) => {
         this.shoppingCarProduct = response;
         this.shoppingCarProduct = [...this.shoppingCarProduct];
+        this.showSuccess('prueba larga');
       },
       error: (errorResponse) => {
-        console.log(errorResponse)
+        this.showSuccess(errorResponse);
       },
     });
   }
@@ -57,6 +66,11 @@ export class MainComponent extends UlBaseComponent implements OnInit, AfterViewI
 
   ngAfterViewInit() {
     this.sidebar.setSidenav(this.sidebarInstance);
+  }
+
+  onChangeFilter(filterType: MatButtonToggleChange): void {
+    console.log(filterType);
+    this.panelOpenState = (filterType.value !== 0);
   }
 
 

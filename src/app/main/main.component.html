@@ -40,18 +40,23 @@
       <div class="ul-filter py-2">
         <form [formGroup]="filterForm">
           <mat-button-toggle-group appearance="legacy" name="fontStyle" class="no-box-shadow bg--transparent gap-3"
-                                   formControlName="filterType">
+                                   formControlName="filterType" (change)="onChangeFilter($event)">
             <mat-button-toggle class="toggle--tag font-semibold" [value]="0">Todo</mat-button-toggle>
             <mat-button-toggle class="toggle--tag font-semibold" [value]="1">Categoría</mat-button-toggle>
             <mat-button-toggle class="toggle--tag font-semibold" [value]="2">Etiquetas</mat-button-toggle>
             <mat-button-toggle class="toggle--tag font-semibold" [value]="3">En promoción</mat-button-toggle>
           </mat-button-toggle-group>
-          <mat-button-toggle-group *ngIf="filterForm.controls['filterType'].value === 1" appearance="legacy" name="fontStyle" aria-label="Font Style"
-                                   formControlName="category">
-            <mat-button-toggle value="bold">Todo</mat-button-toggle>
-            <mat-button-toggle value="italic">Italic</mat-button-toggle>
-            <mat-button-toggle value="underline">Underline</mat-button-toggle>
-          </mat-button-toggle-group>
+          <mat-accordion>
+            <mat-expansion-panel hideToggle class="no-box-shadow bg-transparent" [expanded]="panelOpenState">
+              <mat-button-toggle-group  class="no-box-shadow bg--transparent mt-2 gap-3" *ngIf="filterForm.controls['filterType'].value === 1" appearance="legacy"
+                                       name="fontStyle" aria-label="Font Style"
+                                       formControlName="category">
+                <mat-button-toggle value="bold">Todo</mat-button-toggle>
+                <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                <mat-button-toggle value="underline">Underline</mat-button-toggle>
+              </mat-button-toggle-group>
+            </mat-expansion-panel>
+          </mat-accordion>
         </form>
 
       </div>

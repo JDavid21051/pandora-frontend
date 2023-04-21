@@ -3,8 +3,7 @@
  * 15 | @use '@angular/material' as mat;
  *    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *    '
- *   assets/scss/theme.scss 15:1  @import
- *   styles.scss 17:9             root stylesheet */
+ *   theme.scss 15:1  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -14,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a    \2577 \a 15 \2502  @use '@angular/material' as mat;\a    \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   assets/scss/theme.scss 15:1  @import\a   styles.scss 17:9             root stylesheet";
+  content: "Error: Can't find stylesheet to import.\a    \2577 \a 15 \2502  @use '@angular/material' as mat;\a    \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   theme.scss 15:1  root stylesheet";
 }

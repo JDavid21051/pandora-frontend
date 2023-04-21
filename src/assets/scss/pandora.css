@@ -11,8 +11,150 @@
  * File name:    pandora.scss
  * IDE:          WebStorm
  */
-mat-button-toggle.toggle--tag.mat-button-toggle-checked {
-  border: 1px solid #0d3c61;
+/*
+ * Developed by CQ Inversiones SAS. Copyright ©. 2023 - 2024. All rights reserved.
+ * Desarrollado por CQ Inversiones SAS. Copyright ©. 2023 - 2024. Todos los derechos reservados.
+ */
+/*
+ * Project:      pandora-frontend
+ * Developed by: Juan David Pelaez Cumbe
+ * Date:         21/04/23 - 12:12 PM
+ * Module name:  _button
+ * File name:    _button.scss
+ * IDE:          WebStorm
+ */
+.button--outline {
+  color: #000000 !important;
+  border: 2px solid #232E42 !important;
+  background: #ffffff !important;
 }
+
+mat-button-toggle.toggle--tag {
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+mat-button-toggle.toggle--tag:not(.mat-button-toggle-disabled) {
+  color: rgba(65, 70, 80, 0.75);
+  border: 2px solid transparent;
+}
+mat-button-toggle.toggle--tag:not(.mat-button-toggle-disabled).mat-button-toggle-checked {
+  background: rgba(248, 197, 47, 0.18);
+  color: #F8C52F;
+  border-color: #F8C52F;
+}
+mat-button-toggle.toggle--tag:not(.mat-button-toggle-disabled).mat-button-toggle-checked:hover {
+  background: rgba(248, 197, 47, 0.25);
+  border-color: #F8C52F;
+}
+mat-button-toggle.toggle--tag:not(.mat-button-toggle-disabled) span.mat-button-toggle-focus-overlay {
+  background-color: transparent !important;
+}
+/*
+ * Developed by CQ Inversiones SAS. Copyright ©. 2023 - 2024. All rights reserved.
+ * Desarrollado por CQ Inversiones SAS. Copyright ©. 2023 - 2024. Todos los derechos reservados.
+ */
+/*
+ * Project:      pandora-frontend
+ * Developed by: Juan David Pelaez Cumbe
+ * Date:         21/04/23 - 12:13 PM
+ * Module name:  _card
+ * File name:    _card.scss
+ * IDE:          WebStorm
+ */
+.product--card {
+  height: 22rem;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 16px 16px;
+}
+.product--card .img-content img {
+  object-fit: cover;
+  width: 100% !important;
+  height: 17rem !important;
+  border-radius: 16px 16px 0 0;
+}
+.product--card .img-content .rating--content {
+  bottom: 5px;
+  background: var(--rating--bg);
+}
+.product--card .img-content .rating--content i {
+  color: var(--white);
+  font-size: 2rem !important;
+  bottom: 10px;
+}
+.product--card .desc-content {
+  padding: 0;
+}
+.product--card .desc-content .product--text:hover .price--product {
+  width: 100% !important;
+}
+.product--card .desc-content .product--text:hover .price--product .price--symbol {
+  font-size: 0 !important;
+  background: rgb(35, 46, 66);
+  background: linear-gradient(90deg, rgb(35, 46, 66) 15%, rgb(255, 255, 255) 85%);
+  color: #232E42;
+  border-width: 0 0 3px 3px !important;
+  height: calc(100% - 3px) !important;
+}
+.product--card .desc-content .product--text:hover .price--product .price--symbol .dollar--char {
+  font-size: 0;
+}
+.product--card .desc-content .product--text:hover .price--product .price--symbol > label {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+  text-shadow: 0 0 8px white !important;
+}
+.product--card .desc-content .product--text:hover .price--product .price--show {
+  width: 2rem;
+}
+.product--card .desc-content .product--text:hover .text--product {
+  width: 0 !important;
+  font-size: 0 !important;
+}
+.product--card .desc-content .product--text:hover .text--product .product--tag {
+  width: 0;
+  height: 0;
+}
+.product--card .desc-content .product--text:hover .text--product p {
+  font-size: 0 !important;
+}
+.product--card .desc-content .product--text .desc--text p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+.product--card .desc-content .text--product {
+  transition: width 0.3s linear, font-size 0.3s linear;
+}
+.product--card .price--product {
+  transition: width 0.3s linear;
+}
+.product--card .price--product .price--symbol {
+  height: 4.6rem !important;
+  border: solid #232E42;
+  border-width: 0 3px 3px 3px;
+  background: #232E42;
+  color: #ffffff;
+  border-bottom-left-radius: 16px;
+  font-size: 2rem;
+  transition: width 0.3s linear, font-size 0.3s linear, background-color 0.3s linear, color 0.3s linear, text-shadow 0.3s linear;
+}
+.product--card .price--product .price--symbol > label {
+  transition: font-size 0.3s linear, padding 0.3s linear;
+  font-size: 0;
+}
+
+/*
+ * Developed by CQ Inversiones SAS. Copyright ©. 2023 - 2024. All rights reserved.
+ * Desarrollado por CQ Inversiones SAS. Copyright ©. 2023 - 2024. Todos los derechos reservados.
+ */
+/*
+ * Project:      pandora-frontend
+ * Developed by: Juan David Pelaez Cumbe
+ * Date:         21/04/23 - 12:13 PM
+ * Module name:  _img
+ * File name:    _img.scss
+ * IDE:          WebStorm
+ */
 
 /*# sourceMappingURL=pandora.css.map */

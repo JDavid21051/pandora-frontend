@@ -21,6 +21,7 @@ import {ShowTagPipe} from "../shared/pipe";
 import {OutlineDirective} from "../shared/directive";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatBadgeModule,
     NgOptimizedImage,
     MatButtonToggleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatExpansionModule
   ],
   providers: [ProductListRepository, BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService]
 })

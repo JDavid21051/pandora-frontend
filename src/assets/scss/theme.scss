@@ -1,0 +1,98 @@
+/*
+ * Developed by CQ Inversiones SAS. Copyright ©. 2023 - 2024. All rights reserved.
+ * Desarrollado por CQ Inversiones SAS. Copyright ©. 2023 - 2024. Todos los derechos reservados.
+ */
+
+/*
+ * Project:      pandora-frontend
+ * Developed by: Juan David Pelaez Cumbe
+ * Date:         21/04/23 - 5:56 PM
+ * Module name:  theme.scss
+ * File name:    theme.scss
+ * IDE:          WebStorm
+ */
+
+@use '@angular/material' as mat;
+
+$accent-palette: (
+  100: #FFDAD8,
+  200: #FFB2B5,
+  300: #FF8C9C,
+  400: #FF6F92,
+  500: #ff4081,
+  600: #DB2E7A,
+  700: #B72071,
+  800: #931465,
+  900: #7A0C5D,
+  contrast: (
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+$warn-palette: (
+  100: #FFF4CC,
+  200: #FFE799,
+  300: #FFD666,
+  400: #FFC53F,
+  500: #ffaa00,
+  600: #DB8A00,
+  700: #B76D00,
+  800: #935300,
+  900: #7A4000,
+  contrast: (
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+$primary-palette: (
+  100: #DEEAF5,
+  200: #BFD4EC,
+  300: #8EA6C6,
+  400: #5B6F8D,
+  500: #232E42,
+  600: #192338,
+  700: #111A2F,
+  800: #0B1126,
+  900: #060B1F,
+  contrast: (
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+$custom-primary: mat.define-palette($primary-palette, 500);
+$custom-pink: mat.define-palette($warn-palette, 500);
+$custom-accent: mat.define-palette($warn-palette, 500);
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-accent,
+    warn: $custom-pink,
+  ),
+  density: 0,
+));
+@include mat.core-theme($my-theme);
+@include mat.button-color($my-theme);
+@include mat.all-component-themes($my-theme);
+@include mat.core();

@@ -11,80 +11,10 @@
  * File name:    styles.scss
  * IDE:          WebStorm
  */
-@use '@angular/material' as mat;
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import './assets/scss/variables';
 @import './assets/scss/pandora';
-
-@include mat.core();
-
-$pink-palette: (
-  100: #ECDCFF,
-  200: #D8B9FF,
-  300: #C197FF,
-  400: #AD7DFF,
-  500: #8C52FF,
-  600: #6B3BDB,
-  700: #6B3BDB,
-  800: #361A93,
-  900: #240F7A,
-  contrast: (
-    100: rgba(black, 0.87),
-    200: rgba(black, 0.87),
-    300: rgba(black, 0.87),
-    400: rgba(black, 0.87),
-    500: white,
-    600: white,
-    700: white,
-    800: white,
-    900: white,
-  )
-);
-$indigo-palette: (
-  100: #DEEAF5,
-  200: #BFD4EC,
-  300: #8EA6C6,
-  400: #5B6F8D,
-  500: #232E42,
-  600: #192338,
-  700: #111A2F,
-  800: #0B1126,
-  900: #060B1F,
-  contrast: (
-    100: rgba(black, 0.87),
-    200: rgba(black, 0.87),
-    300: rgba(black, 0.87),
-    400: rgba(black, 0.87),
-    500: white,
-    600: white,
-    700: white,
-    800: white,
-    900: white,
-  )
-);
-$my-palette: $indigo-palette;
-
-$mat-indigo: '#232E42';
-$mat-pink: '#8C52FF';
-$mat-red: '#B1365B';
-
-$my-primary: mat.define-palette($indigo-palette, 500);
-$mat-pink: mat.define-palette($pink-palette, 500);
-
-$my-theme: mat.define-light-theme((
-  color: (
-    primary: $my-primary,
-    accent: $mat-pink,
-  ),
-  density: 0,
-));
-@include mat.core-theme($my-theme);
-@include mat.button-color($my-theme);
-@include mat.all-component-themes($my-theme);
-
-$white: #fff;
-$black: #000;
-
+@import './assets/scss/theme';
 html, body {
   height: 100%;
 }
@@ -170,5 +100,4 @@ app-root {
     color: #061d50 !important;
     box-shadow: #fff 0 5px 3px -3px;
   }
-
 }

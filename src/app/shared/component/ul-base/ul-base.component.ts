@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {NgxSpinnerService} from "ngx-spinner";
-import {AbstractControl, FormGroup} from "@angular/forms";
+import {NgxSpinnerService} from 'ngx-spinner';
+import {AbstractControl, FormGroup} from '@angular/forms';
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
@@ -20,9 +20,17 @@ export class UlBaseComponent implements OnInit {
   }
 
   public showSuccess(message: string): void {
-    this._snackBar.open(message || this.textAlt, '', {
+    this._snackBar.open(message || this.textAlt, 'X', {
       horizontalPosition: 'right',
       verticalPosition: 'top'
+    });
+  }
+
+  public showError(message: string): void {
+    this._snackBar.open(message || this.textAlt, 'X', {
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      duration: 10000,
     });
   }
 

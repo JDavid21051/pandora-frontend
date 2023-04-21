@@ -12,7 +12,9 @@
  * IDE:          WebStorm
  */
 @use '@angular/material' as mat;
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import './assets/scss/variables';
+@import './assets/scss/pandora';
 
 @include mat.core();
 
@@ -104,6 +106,14 @@ body {
   min-height: 7rem;
 }
 
+.min-w-9 {
+  min-width: 75% !important;
+}
+
+.bg--transparent {
+  background-color: transparent !important;
+}
+
 .card__radius {
   border-radius: 16px 16px;
 }
@@ -112,16 +122,18 @@ body {
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
 }
 
+.no-box-shadow {
+  box-shadow: none !important;
+}
+
+.no-text-shadow {
+  text-shadow: none !important;
+}
+
 .product--tag {
   width: 100%;
   height: 3px;
   transition: width .3s linear, height .3s linear;
-}
-
-.button--outline {
-  color: #000000 !important;
-  border: 2px solid #232E42 !important;
-  background: #ffffff !important;
 }
 
 app-root {
@@ -159,112 +171,4 @@ app-root {
     box-shadow: #fff 0 5px 3px -3px;
   }
 
-}
-
-.product--card {
-  height: 22rem;
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 16px 16px;
-
-  & .img-content {
-    & img {
-      object-fit: cover;
-      width: 100% !important;
-      height: 17rem !important;
-      border-radius: 16px 16px 0 0;
-    }
-
-    & .rating--content {
-      bottom: 5px;
-      background: var(--rating--bg);
-
-      & i {
-        color: var(--white);
-        font-size: 2rem !important;
-        bottom: 10px;
-      }
-    }
-  }
-
-  & .desc-content {
-    padding: 0;
-
-    & .product--text {
-      &:hover {
-        & .price--product {
-          width: 100% !important;
-
-          & .price--symbol {
-            font-size: 0 !important;
-            background: rgb(35, 46, 66);
-            background: linear-gradient(90deg, rgba(35, 46, 66, 1) 15%, rgba(255, 255, 255, 1) 85%);
-            color: #232E42;
-            border-width: 0 0 3px 3px !important;
-            height: calc(100% - 3px) !important;
-
-            & .dollar--char {
-              font-size: 0;
-            }
-
-            & > label {
-              font-size: 1.5rem;
-              padding-right: 1rem;
-              text-shadow: 0 0 8px white !important;
-            }
-          }
-
-          & .price--show {
-            width: 2rem;
-          }
-        }
-
-        & .text--product {
-          width: 0 !important;
-          font-size: 0 !important;
-
-          & .product--tag {
-            width: 0;
-            height: 0;
-          }
-
-          & p {
-            font-size: 0 !important;
-          }
-        }
-      }
-
-      & .desc--text {
-        & p {
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-          width: 100%;
-        }
-      }
-    }
-
-    & .text--product {
-      transition: width .3s linear, font-size .3s linear;
-    }
-  }
-
-  & .price--product {
-    transition: width .3s linear;
-
-    & .price--symbol {
-      height: 4.6rem !important;
-      border: solid #232E42;
-      border-width: 0 3px 3px 3px;
-      background: #232E42;
-      color: #ffffff;
-      border-bottom-left-radius: 16px;
-      font-size: 2rem;
-      transition: width .3s linear, font-size .3s linear, background-color .3s linear, color .3s linear, text-shadow .3s linear;
-
-      & > label {
-        transition: font-size .3s linear, padding .3s linear;
-        font-size: 0;
-      }
-    }
-  }
 }

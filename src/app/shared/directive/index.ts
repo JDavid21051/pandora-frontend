@@ -6,12 +6,10 @@
 /*
  * Project:      pandora-frontend
  * Developed by: Juan David Pelaez Cumbe
- * Date:         19/04/23 - 3:15 PM
- * Module name:  index.ts
+ * Date:         21/04/23 - 8:47 AM
+ * Module name:  index
  * File name:    index.ts
  * IDE:          WebStorm
  */
-export * from './ul-card/ul-card.component';
-export * from './ul-confirm/ul-confirm.component';
-export * from './ul-base/ul-base.component';
-export * from './error/error.component';
+
+export * from './outline.directive';

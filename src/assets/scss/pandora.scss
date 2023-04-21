@@ -6,12 +6,12 @@
 /*
  * Project:      pandora-frontend
  * Developed by: Juan David Pelaez Cumbe
- * Date:         19/04/23 - 3:15 PM
- * Module name:  index.ts
- * File name:    index.ts
+ * Date:         20/04/23 - 11:50 PM
+ * Module name:  pandora
+ * File name:    pandora.scss
  * IDE:          WebStorm
  */
-export * from './ul-card/ul-card.component';
-export * from './ul-confirm/ul-confirm.component';
-export * from './ul-base/ul-base.component';
-export * from './error/error.component';
+@import "./source/button";
+@import "./source/card";
+@import "./source/img";
+

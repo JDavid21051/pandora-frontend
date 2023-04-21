@@ -1,0 +1,50 @@
+/*
+ * Developed by CQ Inversiones SAS. Copyright ©. 2023 - 2024. All rights reserved.
+ * Desarrollado por CQ Inversiones SAS. Copyright ©. 2023 - 2024. Todos los derechos reservados.
+ */
+
+/*
+ * Project:      pandora-frontend
+ * Developed by: Juan David Pelaez Cumbe
+ * Date:         21/04/23 - 12:12 PM
+ * Module name:  _button
+ * File name:    _button.scss
+ * IDE:          WebStorm
+ */
+
+
+.button--outline {
+  color: #000000 !important;
+  border: 2px solid #232E42 !important;
+  background: #ffffff !important;
+}
+
+mat-button-toggle.toggle--tag {
+  border-radius: 8px;
+  border: 2px solid transparent;
+
+  &:not(.mat-button-toggle-disabled) {
+    color: rgba(65, 70, 80, 0.75);
+    border: 2px solid transparent;
+
+    &.mat-button-toggle-checked {
+      background: rgba(248, 197, 47, 0.18);
+      color: #F8C52F;
+      border-color: #F8C52F;
+
+      &:hover {
+        background: rgba(248, 197, 47, 0.25);
+        border-color: #F8C52F;
+      }
+    }
+
+    & span.mat-button-toggle-focus-overlay {
+      background-color: transparent !important;
+
+    }
+  }
+
+  &.mat-button-toggle-disabled {
+  }
+}
+

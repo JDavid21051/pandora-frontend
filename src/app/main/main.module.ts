@@ -18,7 +18,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatBadgeModule} from '@angular/material/badge';
 import {ShoppingCarService} from '../shared/service';
 import {ShowTagPipe} from "../shared/pipe";
-import {OutlineDirective} from "../shared/directive/outline.directive";
+import {OutlineDirective} from "../shared/directive";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {OutlineDirective} from "../shared/directive/outline.directive";
     MatToolbarModule,
     MatTooltipModule,
     MatBadgeModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MatButtonToggleModule,
+    ReactiveFormsModule
   ],
   providers: [ProductListRepository, BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService]
 })

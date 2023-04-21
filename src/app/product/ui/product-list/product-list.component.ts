@@ -1,5 +1,5 @@
 import {HttpResponse} from '@angular/common/http';
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ProductInterface} from 'src/app/shared/interface';
 import {ProductListRepository} from "../../../service";
 import {ShoppingCarService} from "../../../shared/service";
@@ -12,6 +12,9 @@ import {UlConfirmComponent} from "../../../shared/component";
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
+  @Input() filterCategory: any;
+  @Input() filterTag: string[] = [];
+  @Input() hasPromo = true;
   @Output() shoppingControl: EventEmitter<ProductInterface> = new EventEmitter<ProductInterface>();
   productList: ProductInterface[] = [];
 
@@ -59,7 +62,7 @@ export class ProductListComponent implements OnInit {
     })
   }
 
-  openConfirm(product: ProductInterface): any {
+  openConfirm(product: ProductInterface): void {
     const confirmRef = this.dialog.open(UlConfirmComponent, {
       data: {
         status: 'primary',

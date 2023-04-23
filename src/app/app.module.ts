@@ -41,6 +41,8 @@ import {PromoListComponent} from './source/ui/promo/promo-list/promo-list.compon
 import {PromoFormComponent} from './source/ui/promo/promo-form/promo-form.component';
 import {PromoConfigComponent} from './source/ui/promo/promo-config/promo-config.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {SourceModule} from './source';
+import {QuicklinkModule} from 'ngx-quicklink';
 
 @NgModule({
   declarations: [
@@ -78,8 +80,10 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     NgxSpinnerModule,
     MatTableModule,
     MatPaginatorModule,
+    QuicklinkModule,
     MatSortModule,
     DragDropModule,
+    SourceModule
   ],
   providers: [BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService],
   bootstrap: [AppComponent]

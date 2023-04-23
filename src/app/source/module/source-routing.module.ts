@@ -15,11 +15,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CategoryListComponent} from '../ui/category/category-list/category-list.component';
+import {PromoListComponent} from '../ui/promo/promo-list/promo-list.component';
+import {PromoFormComponent} from '../ui/promo/promo-form/promo-form.component';
+import {PromoConfigComponent} from '../ui/promo/promo-config/promo-config.component';
 
-const sourceRoutes : Routes = [
+const sourceRoutes: Routes = [
   {path: '', redirectTo: 'category', pathMatch: 'prefix'},
   {path: 'category', component: CategoryListComponent},
-  {path: 'promo', component: CategoryListComponent},
+  {path: 'promo', component: PromoListComponent},
+  {path: 'promo/create', component: PromoFormComponent},
+  {path: 'promo/setting', component: PromoConfigComponent},
 ];
 
 @NgModule({

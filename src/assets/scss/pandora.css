@@ -64,7 +64,7 @@ mat-button-toggle.toggle--tag:not(.mat-button-toggle-disabled) span.mat-button-t
 .product--card {
   height: 22rem;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 16px 16px;
+  border-radius: var(--card-radius);
 }
 .product--card .img-content img {
   object-fit: cover;

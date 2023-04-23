@@ -11,5 +11,5 @@ export interface ProductInterface {
   image_url: string;
   image_type: number;
   image_alt: string;
-  tags: number[];
+  tag: string;
 }

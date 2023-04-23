@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
-import {MAIN_ROUTE_CONST} from "./main.route";
-import {RouterModule} from "@angular/router";
+import {MAIN_ROUTE_CONST} from './main.route';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({

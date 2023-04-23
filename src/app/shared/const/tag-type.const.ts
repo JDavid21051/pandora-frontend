@@ -13,10 +13,11 @@
  */
 
 export interface TagInterface {
-  S: string;
-  M: string;
-  L: string;
-  XL: string;
+  NA: string;
+  AF: string;
+  SA: string;
+  AS: string;
+  EU: string;
 }
 
 export const TAG_TYPE_ENUM: { [index: string]: any } = {

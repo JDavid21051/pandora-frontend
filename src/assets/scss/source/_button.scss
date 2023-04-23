@@ -14,37 +14,57 @@
 
 
 .button--outline {
-  color: #000000 !important;
-  border: 2px solid #232E42 !important;
-  background: #ffffff !important;
+  color: var(--base-black) !important;
+  border: 2px solid var(--base-primary-500) !important;
+  background: var(--base-neutral-100) !important;
 }
 
-mat-button-toggle.toggle--tag {
-  border-radius: 8px;
-  border: 2px solid transparent;
-
-  &:not(.mat-button-toggle-disabled) {
-    color: rgba(65, 70, 80, 0.75);
+mat-button-toggle {
+  &.toggle--tag {
+    border-radius: 8px;
     border: 2px solid transparent;
+    &.btn--warn {
+      &:not(.mat-button-toggle-disabled) {
+        color: var(--base-neutral-600);
+        border: 2px solid transparent;
 
-    &.mat-button-toggle-checked {
-      background: rgba(248, 197, 47, 0.18);
-      color: #F8C52F;
-      border-color: #F8C52F;
+        &.mat-button-toggle-checked {
+          background: var(--base-warning-80);
+          color: var(--base-warning-500);
+          border-color: var(--base-warning-500);
 
-      &:hover {
-        background: rgba(248, 197, 47, 0.25);
-        border-color: #F8C52F;
+          &:hover {
+            background: var(--base-warning-70);
+            border-color: var(--base-warning-400);
+          }
+        }
+
+        & span.mat-button-toggle-focus-overlay {
+          background-color: transparent !important;
+        }
       }
     }
+    &.btn--accent {
+      &:not(.mat-button-toggle-disabled) {
+        color: var(--base-neutral-600);
+        border: 2px solid transparent;
 
-    & span.mat-button-toggle-focus-overlay {
-      background-color: transparent !important;
+        &.mat-button-toggle-checked {
+          background: var(--base-accent-80);
+          color: var(--base-accent-500);
+          border-color: var(--base-accent-500);
 
+          &:hover {
+            background: var(--base-accent-70);
+            border-color: var(--base-accent-400);
+          }
+        }
+
+        & span.mat-button-toggle-focus-overlay {
+          background-color: transparent !important;
+        }
+      }
     }
-  }
-
-  &.mat-button-toggle-disabled {
   }
 }
 

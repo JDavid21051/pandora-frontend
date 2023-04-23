@@ -14,4 +14,4 @@
 export * from './ul-card/ul-card.component';
 export * from './ul-confirm/ul-confirm.component';
 export * from './ul-base/ul-base.component';
-export * from './error/error.component';
+export * from './not-found/not-found.component';

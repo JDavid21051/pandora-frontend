@@ -1,18 +1,14 @@
-<mat-toolbar class="main--header flex flex-row align-items-center justify-content-between px-5" color="primary">
+
   <div class="w-12rem h-4rem">
-    <img class="h-4rem" ngSrc="../../../assets/image/bhouse-white-transparent.png" alt="logo alternativo"
-    width="192" height="70">
+    <img class="h-4rem cursor-pointer" ngSrc="../../../assets/image/bhouse-white-transparent.png" alt="logo alternativo"
+         width="192" height="70" (click)="onClickHome()">
   </div>
-  <div class="flex gap-3">
-    <button mat-mini-fab color="primary" aria-label="Example icon button with a bookmark icon"
-            matTooltip="Abrir panel" [matBadgeHidden]="shoppingCarProduct.length === 0" [matBadge]="shoppingCarProduct.length" matBadgeColor="warn"
+  <div class="flex">
+    <button mat-mini-fab color="primary" aria-label="Example icon button"
+            matTooltip="Abrir carrito de compras"
+            [matBadge]="shoppingCarProduct.length" matBadgeColor="warn"
             (click)="onClickSidebarToggle()">
       <mat-icon>shopping_cart</mat-icon>
     </button>
-    <button mat-mini-fab color="accent" aria-label="Example icon button with a bookmark icon"
-            matTooltip="Abrir panel"
-            (click)="onClickSidebarToggle()">
-      <mat-icon>settings</mat-icon>
-    </button>
   </div>
-</mat-toolbar>
+  <!--[matBadgeHidden]="shoppingCarProduct.length === 0"-->

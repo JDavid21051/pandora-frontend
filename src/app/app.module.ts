@@ -23,7 +23,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import {NgxStarRatingModule} from 'ngx-star-rating';
 // shared
 import {BdSidenavService, ShoppingCarService} from './shared/service';
-import {UlConfirmComponent, ErrorComponent, UlBaseComponent} from './shared/component';
+import {UlConfirmComponent, UlBaseComponent} from './shared/component';
 import {ShowTagPipe} from './shared/pipe';
 import {OutlineDirective} from './shared/directive';
 // modules
@@ -33,14 +33,25 @@ import {MainModule} from './main';
 // component
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
+import {UlSnackComponent} from './shared/component/ul-snack/ul-snack.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {PromoListComponent} from './source/ui/promo/promo-list/promo-list.component';
+import {PromoFormComponent} from './source/ui/promo/promo-form/promo-form.component';
+import {PromoConfigComponent} from './source/ui/promo/promo-config/promo-config.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
     AppComponent,
     UlConfirmComponent,
     OutlineDirective,
-    ErrorComponent,
-    UlBaseComponent
+    UlBaseComponent,
+    UlSnackComponent,
+    PromoListComponent,
+    PromoFormComponent,
+    PromoConfigComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +76,10 @@ import {AppRoutingModule} from './app-routing.module';
     ShoppingCarModule,
     AuthModule,
     NgxSpinnerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    DragDropModule,
   ],
   providers: [BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService],
   bootstrap: [AppComponent]

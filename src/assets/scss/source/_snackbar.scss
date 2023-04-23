@@ -17,12 +17,21 @@
 }
 
 .snack--success {
-  border: 2px solid var(--base-gray-800);
-  background: var(--base-success-500);
+  color: var(--base-neutral-100) !important;
+  border: 2px solid var(--base-success-500) !important;
+  background: var(--base-success-500) !important;
+
+  & .mat-simple-snackbar-action button {
+    color: var(--base-neutral-100) !important;
+  }
 }
 
 .snack--error {
-  border: 2px solid var(--base-gray-800);
-  background: var(--base-warn-500);
-  font-weight: 600;
+  color: var(--base-neutral-100) !important;
+  border: 2px solid var(--base-warn-600) !important;
+  background: var(--base-warn-500) !important;
+
+  & .mat-simple-snackbar-action button {
+    color: var(--base-neutral-100) !important;
+  }
 }

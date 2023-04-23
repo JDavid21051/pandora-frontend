@@ -14,7 +14,8 @@
 import {Injectable} from '@angular/core';
 import {ProductInterface} from '../interface';
 import {BehaviorSubject, Observable, of} from 'rxjs';
-import {ObsResponseInterface} from "../interface/obs-response.interface";
+import {ObsResponseInterface} from '../interface';
+import {ActivatedRoute} from '@angular/router';
 
 @Injectable()
 export class ShoppingCarService {
@@ -22,13 +23,13 @@ export class ShoppingCarService {
   private shoppingCar$$: BehaviorSubject<ObsResponseInterface<any>>;
   public onListChange: BehaviorSubject<ProductInterface[]>;
 
-  constructor() {
+  constructor(public active: ActivatedRoute) {
     const initResponse: ObsResponseInterface<any> = {
       status: 0,
       body: null,
       success: false,
       error: ''
-    }
+    };
     this.shoppingCar$$ = new BehaviorSubject(initResponse);
     this.onListChange = new BehaviorSubject<ProductInterface[]>([]);
   }
@@ -48,7 +49,7 @@ export class ShoppingCarService {
       response = {
         body: null,
         status: 0,
-        error: 'Ha ocurrido un error',
+        error: 'Ha ocurrido un not-found',
         success: false,
       };
     }

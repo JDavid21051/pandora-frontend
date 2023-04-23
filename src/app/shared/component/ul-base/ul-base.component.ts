@@ -5,8 +5,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-ul-base',
-  templateUrl: './ul-base.component.html',
-  styleUrls: ['./ul-base.component.scss']
+  template: '',
 })
 export class UlBaseComponent implements OnInit {
   textAlt = '';
@@ -20,9 +19,10 @@ export class UlBaseComponent implements OnInit {
   }
 
   public showSuccess(message: string): void {
-    this._snackBar.open(message || this.textAlt, 'X', {
+    this._snackBar.open(message || this.textAlt, 'Ok', {
       horizontalPosition: 'right',
-      verticalPosition: 'top'
+      verticalPosition: 'top',
+      panelClass: ['snack', 'snack--success'],
     });
   }
 
@@ -30,7 +30,7 @@ export class UlBaseComponent implements OnInit {
     this._snackBar.open(message || this.textAlt, 'X', {
       horizontalPosition: 'right',
       verticalPosition: 'top',
-      duration: 10000,
+      panelClass: ['snack', 'snack--not-found'],
     });
   }
 

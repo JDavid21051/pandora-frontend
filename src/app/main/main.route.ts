@@ -13,14 +13,17 @@
  */
 
 import {Routes} from '@angular/router';
-import {MainComponent} from "./main.component";
+import {MainComponent} from './main.component';
+import {ShoppingCarComponent} from '../shopping-car/ui/shopping-car/shopping-car.component';
+import {NotFoundItemsComponent} from '../shopping-car/ui/not-found-items/not-found-items.component';
 
 export const MAIN_ROUTE_CONST: Routes = [
   {
     path: '', component: MainComponent, children: [
       {path: 'product', loadChildren: () => import('../product/product.module').then(m => m.ProductModule)},
+      {path: 'shopping-car', loadChildren: () => import('../shopping-car/shopping-car.module').then(m => m.ShoppingCarModule)},
       {path: '', redirectTo: 'product', pathMatch: 'prefix'},
     ]
   },
   {path: '**', redirectTo: 'main/product', pathMatch: 'full'},
-]
+];

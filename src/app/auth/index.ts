@@ -12,6 +12,6 @@
  * IDE:          WebStorm
  */
 
-export * from './auth.module';
 export * from './ui/login/login.component';
 export * from './ui/register/register.component';
+export * from './auth.module';

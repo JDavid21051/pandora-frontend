@@ -14,15 +14,15 @@
 
 .product--card {
   height: 22rem;
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 16px 16px;
+  box-shadow: 5px 5px 15px 5px var(--card-shadow);
+  border-radius: var(--card-radius);
 
   & .img-content {
     & img {
       object-fit: cover;
       width: 100% !important;
       height: 17rem !important;
-      border-radius: 16px 16px 0 0;
+      border-radius: var(--card-radius) 0 0;
     }
 
     & .rating--content {
@@ -30,7 +30,7 @@
       background: var(--rating--bg);
 
       & i {
-        color: var(--white);
+        color: var(--base-neutral-100);
         font-size: 2rem !important;
         bottom: 10px;
       }
@@ -47,9 +47,10 @@
 
           & .price--symbol {
             font-size: 0 !important;
-            background: rgb(35, 46, 66);
-            background: linear-gradient(90deg, rgba(35, 46, 66, 1) 15%, rgba(255, 255, 255, 1) 85%);
-            color: #232E42;
+
+            background: var(--base-primary-500);
+            background: linear-gradient(90deg, var(--base-primary-500) 15%, var(--base-neutral-100) 85%);
+            color: var(--base-primary-500);;
             border-width: 0 0 3px 3px !important;
             height: calc(100% - 3px) !important;
 
@@ -60,7 +61,7 @@
             & > label {
               font-size: 1.5rem;
               padding-right: 1rem;
-              text-shadow: 0 0 8px white !important;
+              text-shadow: 0 0 8px var(--base-neutral-100) !important;
             }
           }
 
@@ -104,10 +105,10 @@
 
     & .price--symbol {
       height: 4.6rem !important;
-      border: solid #232E42;
+      border: solid var(--base-primary-500);
       border-width: 0 3px 3px 3px;
-      background: #232E42;
-      color: #ffffff;
+      background: var(--base-primary-500);
+      color: var(--base-neutral-100);
       border-bottom-left-radius: 16px;
       font-size: 2rem;
       transition: width .3s linear, font-size .3s linear, background-color .3s linear, color .3s linear, text-shadow .3s linear;

@@ -11,8 +11,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {NgxStarRatingModule} from 'ngx-star-rating';
 import {SharedModule} from '../shared/module';
-import {MatDialogModule} from "@angular/material/dialog";
-import {ShoppingCarService} from "../shared/service";
+import {MatDialogModule} from '@angular/material/dialog';
+import {ShoppingCarService} from '../shared/service';
 
 @NgModule({
   declarations: [

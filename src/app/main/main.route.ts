@@ -18,8 +18,15 @@ import {MainComponent} from './main.component';
 export const MAIN_ROUTE_CONST: Routes = [
   {
     path: '', component: MainComponent, children: [
-      {path: 'product', loadChildren: () => import('../product/product.module').then(m => m.ProductModule)},
-      {path: 'shopping-car', loadChildren: () => import('../shopping-car/shopping-car.module').then(m => m.ShoppingCarModule)},
+      {
+        path: 'product', loadChildren: () => import('../product/product.module').then(m => m.ProductModule),
+        data: {preload: false}
+      },
+      {
+        path: 'shopping-car',
+        loadChildren: () => import('../shopping-car/shopping-car.module').then(m => m.ShoppingCarModule),
+        data: {preload: false}
+      },
       {path: '', redirectTo: 'product', pathMatch: 'prefix'},
     ]
   },

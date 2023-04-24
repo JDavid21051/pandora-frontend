@@ -27,9 +27,6 @@ import {UlConfirmComponent, UlBaseComponent} from './shared/component';
 import {ShowTagPipe} from './shared/pipe';
 import {OutlineDirective} from './shared/directive';
 // modules
-import {AuthModule} from './auth';
-import {ShoppingCarModule} from './shopping-car';
-import {MainModule} from './main';
 // component
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -41,8 +38,8 @@ import {PromoListComponent} from './source/ui/promo/promo-list/promo-list.compon
 import {PromoFormComponent} from './source/ui/promo/promo-form/promo-form.component';
 import {PromoConfigComponent} from './source/ui/promo/promo-config/promo-config.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import {SourceModule} from './source';
 import {QuicklinkModule} from 'ngx-quicklink';
+import {LoadStrategyService} from './auth/service/load-strategy.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +58,6 @@ import {QuicklinkModule} from 'ngx-quicklink';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MainModule,
     MatSidenavModule,
     MatInputModule,
     MatFormFieldModule,
@@ -75,17 +71,14 @@ import {QuicklinkModule} from 'ngx-quicklink';
     MatListModule,
     NgxStarRatingModule,
     MatDialogModule,
-    ShoppingCarModule,
-    AuthModule,
     NgxSpinnerModule,
     MatTableModule,
     MatPaginatorModule,
     QuicklinkModule,
     MatSortModule,
     DragDropModule,
-    SourceModule
   ],
-  providers: [BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService],
+  providers: [BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService, LoadStrategyService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

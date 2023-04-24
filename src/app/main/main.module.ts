@@ -9,7 +9,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {ProductListRepository} from '../service';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {ProductModule} from '../product/product.module';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -22,6 +21,7 @@ import {OutlineDirective} from '../shared/directive';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    ProductModule,
     MatIconModule,
     MatListModule,
     MatToolbarModule,
@@ -47,7 +46,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ReactiveFormsModule,
     MatExpansionModule
   ],
-  providers: [ProductListRepository, BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService]
+  providers: [ProductListRepository, BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService, MatSnackBar]
 })
 export class MainModule {
 }

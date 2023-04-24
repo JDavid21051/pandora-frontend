@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ProductFormComponent, ProductListComponent} from './ui';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -13,6 +13,7 @@ import {NgxStarRatingModule} from 'ngx-star-rating';
 import {SharedModule} from '../shared/module';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ShoppingCarService} from '../shared/service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -39,4 +40,5 @@ import {ShoppingCarService} from '../shared/service';
   ],
   providers: [ProductListRepository, ShoppingCarService]
 })
-export class ProductModule { }
+export class ProductModule {
+}

@@ -12,8 +12,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgxStarRatingModule} from 'ngx-star-rating';
 import {SharedModule} from '../shared/module';
 import {MatDialogModule} from '@angular/material/dialog';
-import {ShoppingCarService} from '../shared/service';
-import {MatSnackBar} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -38,7 +36,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     ProductListComponent,
     ProductFormComponent,
   ],
-  providers: [ProductListRepository, ShoppingCarService]
+  providers: [ProductListRepository]
 })
 export class ProductModule {
 }

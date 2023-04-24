@@ -22,7 +22,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 // rating
 import {NgxStarRatingModule} from 'ngx-star-rating';
 // shared
-import {BdSidenavService, ShoppingCarService} from './shared/service';
+import {BdSidenavService} from './shared/service';
 import {UlConfirmComponent, UlBaseComponent} from './shared/component';
 import {ShowTagPipe} from './shared/pipe';
 import {OutlineDirective} from './shared/directive';
@@ -78,7 +78,7 @@ import {LoadStrategyService} from './auth/service/load-strategy.service';
     MatSortModule,
     DragDropModule,
   ],
-  providers: [BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService, LoadStrategyService],
+  providers: [BdSidenavService, ShowTagPipe, OutlineDirective, LoadStrategyService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,28 +1,8 @@
-<!--
-<mat-drawer-container class="w-12 h-screen" autosize>
-  <mat-drawer #drawerLeft mode="side">
-    <div class="main&#45;&#45;sidebar&#45;&#45;content p-3 w-10rem max-w-12rem">
-      <p>Auto-resizing sidenav</p>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button>
-    </div>
-  </mat-drawer>
-  <div>
-    <app-header [shoppingCarProduct]="shoppingCarProduct"></app-header>
-    <div class="px-5 py-3">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-
-</mat-drawer-container>
--->
-
 <div class="flex flex-column absolute bottom-0 right-0 left-0 main--content"
      [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="flex flex-row align-items-center justify-content-between p-0 fixed z-2 main--toolbar gap-3"
                color="primary">
-    <app-header [shoppingCarProduct]="shoppingCarProduct" class="flex w-11 justify-content-between align-items-center"
+    <app-header class="flex w-11 justify-content-between align-items-center"
     ></app-header>
 
     <div class="w-1">

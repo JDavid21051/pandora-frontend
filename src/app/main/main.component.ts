@@ -1,5 +1,5 @@
 import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
-import {BdSidenavService, ShoppingCarService} from '../shared/service';
+import {BdSidenavService} from '../shared/service';
 import {MatDrawer} from '@angular/material/sidenav';
 import {ProductInterface} from '../shared/interface';
 import {MediaMatcher} from '@angular/cdk/layout';
@@ -39,29 +39,17 @@ export class MainComponent extends UlBaseComponent implements OnInit, AfterViewI
               private readonly builder: FormBuilder,
               private readonly router: Router,
               private readonly media: MediaMatcher,
-              private readonly shoppingCarService: ShoppingCarService,
               protected override _snackBar: MatSnackBar,
               protected override _spinner: NgxSpinnerService) {
     super(_spinner, _snackBar);
     this.spinnerOn().then();
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
     this.filterForm = builder.group({
       filterType: [0, [Validators.required]],
       category: [null, [Validators.required]],
       tag: [null, [Validators.required]]
-    });
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
-    this.shoppingCarService.onListChange.subscribe({
-      next: (response: ProductInterface[]) => {
-        console.log(response);
-        this.shoppingCarProduct = response;
-        this.shoppingCarProduct = [...this.shoppingCarProduct];
-        this.showSuccess('prueba larga');
-      },
-      error: (errorResponse) => {
-        this.showSuccess(errorResponse);
-      },
     });
     this.categoryList = CATEGORY_LIST_CONST;
     this.tagList = TAG_LIST_CONST;

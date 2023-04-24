@@ -15,7 +15,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {BdSidenavService} from '../shared/service';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatBadgeModule} from '@angular/material/badge';
-import {ShoppingCarService} from '../shared/service';
 import {ShowTagPipe} from '../shared/pipe';
 import {OutlineDirective} from '../shared/directive';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -46,7 +45,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     ReactiveFormsModule,
     MatExpansionModule
   ],
-  providers: [ProductListRepository, BdSidenavService, ShowTagPipe, OutlineDirective, ShoppingCarService, MatSnackBar]
+  providers: [ProductListRepository, BdSidenavService, ShowTagPipe, OutlineDirective, MatSnackBar]
 })
 export class MainModule {
 }

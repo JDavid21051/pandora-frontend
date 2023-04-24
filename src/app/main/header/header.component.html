@@ -1,7 +1,7 @@
 
   <div class="w-12rem h-4rem">
-    <img class="h-4rem cursor-pointer" ngSrc="../../../assets/image/bhouse-white-transparent.png" alt="logo alternativo"
-         width="192" height="70" (click)="onClickHome()">
+    <img class="h-4rem w-auto cursor-pointer" ngSrc="../../../assets/image/bhouse-white-transparent.png" alt="logo alternativo"
+         (click)="onClickHome()" fill>
   </div>
   <div class="flex">
     <button mat-mini-fab color="primary" aria-label="Example icon button"
@@ -11,4 +11,3 @@
       <mat-icon>shopping_cart</mat-icon>
     </button>
   </div>
-  <!--[matBadgeHidden]="shoppingCarProduct.length === 0"-->

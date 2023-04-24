@@ -1,5 +1,5 @@
-import {Component, Input, OnChanges} from '@angular/core';
-import {BdSidenavService} from '../../shared/service';
+import {Component} from '@angular/core';
+import {BdSidenavService, ShoppingCarService} from '../../shared/service';
 import {ProductInterface} from '../../shared/interface';
 import {Router} from '@angular/router';
 
@@ -8,14 +8,19 @@ import {Router} from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.sass']
 })
-export class HeaderComponent implements OnChanges {
-  @Input() shoppingCarProduct: ProductInterface[] = [];
+export class HeaderComponent {
+  shoppingCarProduct: ProductInterface[] = [];
 
-  constructor(private readonly sidebar: BdSidenavService, private readonly router: Router) {
-  }
-
-  ngOnChanges(): void {
-    this.shoppingCarProduct = [...this.shoppingCarProduct];
+  constructor(private readonly sidebar: BdSidenavService, private readonly router: Router, private readonly shoppingCarService: ShoppingCarService) {
+    this.shoppingCarService.onListChange.subscribe({
+      next: (response: ProductInterface[]) => {
+        this.shoppingCarProduct = response;
+        this.shoppingCarProduct = [...this.shoppingCarProduct];
+      },
+      error: (errorResponse) => {
+        console.log(errorResponse);
+      },
+    });
   }
 
   onClickSidebarToggle(): void {

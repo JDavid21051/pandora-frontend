@@ -15,3 +15,6 @@
 export * from './ui/login/login.component';
 export * from './ui/register/register.component';
 export * from './auth.module';
+export * from './auth-routing.module';
+export * from './service/base-auth.service';
+export * from './service/load-strategy.service';

@@ -26,7 +26,6 @@ import {BdSidenavService} from './shared/service';
 import {UlConfirmComponent, UlBaseComponent} from './shared/component';
 import {ShowTagPipe} from './shared/pipe';
 import {OutlineDirective} from './shared/directive';
-// modules
 // component
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -39,7 +38,10 @@ import {PromoFormComponent} from './source/ui/promo/promo-form/promo-form.compon
 import {PromoConfigComponent} from './source/ui/promo/promo-config/promo-config.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {QuicklinkModule} from 'ngx-quicklink';
-import {LoadStrategyService} from './auth/service/load-strategy.service';
+import {LoadStrategyService} from './auth';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import {environment} from '../environments/environment';
+import {provideAuth, getAuth} from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import {LoadStrategyService} from './auth/service/load-strategy.service';
     QuicklinkModule,
     MatSortModule,
     DragDropModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
   ],
   providers: [BdSidenavService, ShowTagPipe, OutlineDirective, LoadStrategyService],
   bootstrap: [AppComponent]

@@ -1,13 +1,17 @@
 import {HttpResponse} from '@angular/common/http';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {MatButtonToggleChange} from '@angular/material/button-toggle';
+import {UlConfirmComponent} from 'src/app/shared/component';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {pairwise, startWith} from 'rxjs';
+import {FILTER_TYPE_CONST} from 'src/app/shared/const/filter-type.const';
 import {ProductInterface} from 'src/app/shared/interface';
 import {ProductListRepository} from 'src/app/service';
 import {ShoppingCarService} from 'src/app/shared/service';
-import {MatDialog} from '@angular/material/dialog';
-import {UlConfirmComponent} from 'src/app/shared/component';
-import {ActivatedRoute, Params} from '@angular/router';
-import {NgxSpinnerService} from 'ngx-spinner';
-import {FILTER_TYPE_CONST} from 'src/app/shared/const/filter-type.const';
+import {FilterTypeInterface} from 'src/app/shared/interface/filter-type.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -20,12 +24,36 @@ export class ProductListComponent implements OnInit {
   @Output() shoppingControl: EventEmitter<ProductInterface> = new EventEmitter<ProductInterface>();
   productList: ProductInterface[] = [];
   noFilterProductList: ProductInterface[] = [];
+  filterForm: FormGroup;
+
+  // control
+  filteredCategory = false;
+  filteredTag = false;
+  filteredPromo = false;
 
   constructor(private readonly service: ProductListRepository,
               private readonly activatedRoute: ActivatedRoute,
               private readonly spinnerService: NgxSpinnerService,
+              private readonly builder: FormBuilder,
+              private readonly router: Router,
               private readonly shoppingCarService: ShoppingCarService,
               private readonly dialog: MatDialog) {
+    this.filterForm = builder.group({
+      filterType: [0, [Validators.required]],
+      category: [null, [Validators.required]],
+      tag: [null, [Validators.required]]
+    });
+    this.filterForm.controls['filterType'].valueChanges
+      .pipe(startWith(-1), pairwise())
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+          console.log(response);
+        },
+        error: (errorResponse) => {
+          console.log(errorResponse);
+        }
+      });
   }
 
   ngOnInit(): void {
@@ -81,17 +109,6 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  onClickAdd(product: ProductInterface): void {
-    this.shoppingCarService.addProduct(product).subscribe({
-      next: (response) => {
-        console.log(response);
-      },
-      error: (errorResponse) => {
-        console.log(errorResponse);
-      },
-    });
-  }
-
   openConfirm(product: ProductInterface): void {
     const confirmRef = this.dialog.open(UlConfirmComponent, {
       data: {
@@ -108,5 +125,29 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
+
+  onClickAdd(product: ProductInterface): void {
+    this.shoppingCarService.addProduct(product).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (errorResponse) => {
+        console.log(errorResponse);
+      },
+    });
+  }
+
+  onChangeFilter(filterType: MatButtonToggleChange): void {
+    this.filteredCategory = (filterType.value === 1);
+    this.filteredTag = (filterType.value === 2);
+    this.filteredPromo = (filterType.value === 3);
+    const filterKey: FilterTypeInterface = {
+      filter: (filterType.value === 1 ? 'category' : (filterType.value === 2 ? 'tag' : (filterType.value === 3 ? 'promo' : 'all')))
+    };
+    if (filterType.value !== 1 && filterType.value !== 2) {
+      this.router.navigate(['product/list'], {queryParams: filterKey}).then();
+    }
+  }
+
 
 }

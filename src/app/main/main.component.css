@@ -1,13 +1,18 @@
 .main--content {
-  top: 60px;
+  top: var(--body--ofset-h);
+  height: var(--body-height);
 }
 
 .main--toolbar {
-  margin-top: -60px !important;
+  margin-top: var(--body--ofset-mt) !important;
 }
 
 .example-is-mobile .main--toolbar {
-  margin-top: -60px !important;
+  margin-top: var(--body--ofset-mt) !important;
+}
+
+.body--height {
+  height: var(--body-height);
 }
 
 h1.example-app-name {

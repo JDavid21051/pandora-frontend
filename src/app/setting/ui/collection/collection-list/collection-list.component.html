@@ -1,0 +1,13 @@
+<div class="flex flex-row justify-content-between w-full mb-3">
+  <p>Listado de usuarios</p>
+  <button mat-button mat-raised-button color="accent" (click)="onClickCreateCol()">
+      Crear colección
+  </button>
+</div>
+<div class="flex flex-column gap-3 max-h-20rem overflow-y-auto">
+  <mat-card *ngFor="let item of userList" class="mx-1">
+    {{' //name: ' + item.first_name}}
+    {{item.last_name}}
+    {{' //mail: ' + item.email}}
+  </mat-card>
+</div>

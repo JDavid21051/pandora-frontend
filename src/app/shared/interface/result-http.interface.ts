@@ -6,10 +6,16 @@
 /*
  * Project:      pandora-frontend
  * Developed by: Juan David Pelaez Cumbe
- * Date:         23/04/23 - 3:18 PM
- * Module name:  index.ts
- * File name:    index.ts
+ * Date:         27/04/23 - 11:26 AM
+ * Module name:  result-htttp.interface
+ * File name:    result-htttp.interface.ts
  * IDE:          WebStorm
  */
 
-export * from './module/source.module';
+export interface ResultHttpInterface<T> {
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
+  data: T
+}

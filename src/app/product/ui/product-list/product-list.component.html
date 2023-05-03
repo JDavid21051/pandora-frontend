@@ -1,3 +1,41 @@
+<div class="ul-filter py-2 mb-2">
+  <form [formGroup]="filterForm">
+    <mat-button-toggle-group appearance="legacy" name="filter" class="no-box-shadow bg--transparent gap-3"
+                             formControlName="filterType" (change)="onChangeFilter($event)">
+      <mat-button-toggle class="toggle--tag btn--warn font-semibold" [value]="0">Todo</mat-button-toggle>
+      <mat-button-toggle class="toggle--tag btn--warn font-semibold" [value]="1">Categoría</mat-button-toggle>
+      <mat-button-toggle class="toggle--tag btn--warn font-semibold" [value]="2">Etiquetas</mat-button-toggle>
+      <mat-button-toggle class="toggle--tag btn--warn font-semibold" [value]="3">En promoción</mat-button-toggle>
+    </mat-button-toggle-group>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle class="no-box-shadow bg-transparent"
+                           [expanded]="filterForm.controls['filterType'].value === 1">
+        <mat-button-toggle-group appearance="legacy"
+                                 name="category" class="no-box-shadow bg--transparent gap-3 mt-3"
+                                 formControlName="category">
+          <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="bold">Todo</mat-button-toggle>
+          <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="italic">Italic
+          </mat-button-toggle>
+          <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="underline">Underline
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle class="no-box-shadow bg-transparent"
+                           [expanded]="filterForm.controls['filterType'].value === 2">
+        <mat-button-toggle-group appearance="legacy" formControlName="tag"
+                                 name="tags" class="no-box-shadow bg--transparent gap-3 mt-3">
+          <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="bold">Todo</mat-button-toggle>
+          <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="italic">Italic
+          </mat-button-toggle>
+          <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="underline">Underline
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+</div>
 <p class="text-2xl">
   Listado de casas
 </p>

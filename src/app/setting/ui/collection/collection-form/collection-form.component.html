@@ -1,0 +1,23 @@
+<div class="flex w-12 h-12">
+  <form [formGroup]="authForm" novalidate (ngSubmit)="onClickSubmit()">
+    <div class="flex">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Nombre del usuario" formControlName="name">
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <mat-hint>Solo letras, min 6 caracteres</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-form-field appearance="outline">
+        <mat-label>Cargo</mat-label>
+        <input matInput placeholder="Cargo" formControlName="job" id="job" name="job" >
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <mat-hint>Solo letras y números, min 6 caracteres</mat-hint>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="accent" [disabled]="authForm.invalid">
+      Crear usuario
+    </button>
+  </form>
+</div>

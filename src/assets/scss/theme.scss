@@ -15,15 +15,15 @@
 @use '@angular/material' as mat;
 
 $accent-palette: (
-  100: #FFDAD8,
-  200: #FFB2B5,
-  300: #FF8C9C,
-  400: #FF6F92,
-  500: #ff4081,
-  600: #DB2E7A,
-  700: #B72071,
-  800: #931465,
-  900: #7A0C5D,
+  100: #FFF4CC,
+  200: #FFE799,
+  300: #FFD666,
+  400: #FFC53F,
+  500: #ffaa00,
+  600: #DB8A00,
+  700: #B76D00,
+  800: #935300,
+  900: #7A4000,
   contrast: (
     100: rgba(black, 0.87),
     200: rgba(black, 0.87),
@@ -37,15 +37,15 @@ $accent-palette: (
   )
 );
 $warn-palette: (
-  100: #FFF4CC,
-  200: #FFE799,
-  300: #FFD666,
-  400: #FFC53F,
-  500: #ffaa00,
-  600: #DB8A00,
-  700: #B76D00,
-  800: #935300,
-  900: #7A4000,
+  100: #FEE6D6,
+  200: #FDC7AE,
+  300: #FBA186,
+  400: #F87D67,
+  500: #f44336,
+  600: #D12729,
+  700: #AF1B29,
+  800: #8D1127,
+  900: #750A26,
   contrast: (
     100: rgba(black, 0.87),
     200: rgba(black, 0.87),
@@ -82,7 +82,7 @@ $primary-palette: (
 );
 $custom-primary: mat.define-palette($primary-palette, 500);
 $custom-pink: mat.define-palette($warn-palette, 500);
-$custom-accent: mat.define-palette($warn-palette, 500);
+$custom-accent: mat.define-palette($accent-palette, 500);
 
 $my-theme: mat.define-light-theme((
   color: (

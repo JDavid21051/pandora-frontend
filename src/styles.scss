@@ -11,6 +11,8 @@
  * File name:    styles.scss
  * IDE:          WebStorm
  */
+
+@import 'ngx-spinner/animations/ball-spin-clockwise.css';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import './assets/scss/variables';
 @import './assets/scss/pandora';
@@ -34,6 +36,10 @@ body {
 
 .min-h-7rem {
   min-height: 7rem;
+}
+
+.min-h-16rem {
+  min-height: 16rem !important;
 }
 
 .min-w-9 {

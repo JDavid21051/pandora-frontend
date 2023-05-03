@@ -3,15 +3,13 @@ import {BdSidenavService} from '../shared/service';
 import {MatDrawer} from '@angular/material/sidenav';
 import {ProductInterface} from '../shared/interface';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {UlBaseComponent} from '../shared/component';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {MatButtonToggleChange} from '@angular/material/button-toggle';
 import {CATEGORY_LIST_CONST} from '../shared/const';
 import {TAG_LIST_CONST} from '../shared/const/tag-list.const';
 import {Router} from '@angular/router';
-import {FilterTypeInterface} from '../shared/interface/filter-type.interface';
 
 @Component({
   selector: 'app-main',
@@ -22,16 +20,10 @@ export class MainComponent extends UlBaseComponent implements OnInit, AfterViewI
   @ViewChild('drawerLeft') sidebarInstance!: MatDrawer;
   // data
   shoppingCarProduct: ProductInterface[] = [];
-  filterForm: FormGroup;
   mobileQuery!: MediaQueryList;
   categoryList: any[] = [];
   tagList: any[] = [];
   promoList: any[] = [];
-  // control
-  showFiller = false;
-  filteredCategory = false;
-  filteredTag = false;
-  filteredPromo = false;
   private readonly _mobileQueryListener: () => void;
 
   constructor(private readonly sidebar: BdSidenavService,
@@ -46,11 +38,6 @@ export class MainComponent extends UlBaseComponent implements OnInit, AfterViewI
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-    this.filterForm = builder.group({
-      filterType: [0, [Validators.required]],
-      category: [null, [Validators.required]],
-      tag: [null, [Validators.required]]
-    });
     this.categoryList = CATEGORY_LIST_CONST;
     this.tagList = TAG_LIST_CONST;
   }
@@ -63,18 +50,5 @@ export class MainComponent extends UlBaseComponent implements OnInit, AfterViewI
   ngAfterViewInit(): void {
     this.sidebar.setSidenav(this.sidebarInstance);
   }
-
-  onChangeFilter(filterType: MatButtonToggleChange): void {
-    this.filteredCategory = (filterType.value === 1);
-    this.filteredTag = (filterType.value === 2);
-    this.filteredPromo = (filterType.value === 3);
-    const filterKey: FilterTypeInterface = {
-      filter: (filterType.value === 1 ? 'category' : (filterType.value === 2 ? 'tag' : (filterType.value === 3 ? 'promo' : 'all')))
-    };
-    if (filterType.value !== 1 && filterType.value !== 2) {
-      this.router.navigate(['product/list'], {queryParams: filterKey}).then();
-    }
-  }
-
 
 }

@@ -12,26 +12,30 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgxStarRatingModule} from 'ngx-star-rating';
 import {SharedModule} from '../shared/module';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductFormComponent,
   ],
-  imports: [
-    CommonModule,
-    ProductRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSidenavModule,
-    MatInputModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    NgxStarRatingModule,
-    SharedModule,
-    MatDialogModule
-  ],
+    imports: [
+        CommonModule,
+        ProductRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSidenavModule,
+        MatInputModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        NgxStarRatingModule,
+        SharedModule,
+        MatDialogModule,
+        MatButtonToggleModule,
+        MatExpansionModule
+    ],
   exports: [
     ProductListComponent,
     ProductFormComponent,

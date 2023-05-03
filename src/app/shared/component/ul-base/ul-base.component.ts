@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {AbstractControl, FormGroup} from '@angular/forms';
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-ul-base',
@@ -15,7 +15,7 @@ export class UlBaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.textAlt = 'Mensaje default'
+    this.textAlt = 'Mensaje default';
   }
 
   public showSuccess(message: string): void {
@@ -35,18 +35,18 @@ export class UlBaseComponent implements OnInit {
   }
 
   public getControls(_baseForm: FormGroup): { [key: string]: AbstractControl } {
-    return _baseForm.controls
+    return _baseForm.controls;
   }
 
   public async spinnerOff(): Promise<any> {
     this._spinner.hide().then((response) => {
-      return response
+      return response;
     });
   }
 
   public async spinnerOn(): Promise<any> {
     this._spinner.show().then((response) => {
-      return response
+      return response;
     });
   }
 

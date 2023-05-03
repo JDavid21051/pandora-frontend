@@ -27,6 +27,11 @@ export const MAIN_ROUTE_CONST: Routes = [
         loadChildren: () => import('../shopping-car/shopping-car.module').then(m => m.ShoppingCarModule),
         data: {preload: false}
       },
+      {
+        path: 'admin',
+        loadChildren: () => import('../setting/module/setting.module').then(m => m.SettingModule),
+        data: {preload: false}
+      },
       {path: '', redirectTo: 'product', pathMatch: 'prefix'},
     ]
   },

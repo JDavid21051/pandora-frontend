@@ -59,7 +59,6 @@
   --base-accent-70: rgba(183, 32, 113, 0.15);
   --base-accent-80: rgba(147, 20, 101, 0.2);
 
-
   --base-neutral-100: rgb(255, 255, 255);
   --base-neutral-200: rgb(207, 207, 207);
   --base-neutral-300: rgb(158, 158, 158);
@@ -79,6 +78,16 @@
   --base-dark-700: #111A2F;
   --base-dark-800: #0B1126;
   --base-dark-900: #060B1F;
+
+  --base-warn-2-100: #fff2f2;
+  --base-warn-2-200: #ffd6d9;
+  --base-warn-2-300: #ffa8b4;
+  --base-warn-2-400: #ff708d;
+  --base-warn-2-500: #ff3d71;
+  --base-warn-2-600: #db2c66;
+  --base-warn-2-700: #b81d5b;
+  --base-warn-2-800: #94124e;
+  --base-warn-2-900: #700940;
 
   --base-warn-100: #FEE6D6;
   --base-warn-200: #FDC7AE;
@@ -117,4 +126,9 @@
 
   // radius
   --card-radius: 16px 16px;
+
+  // sizes
+  --body-height: 91.8vh;
+  --body--ofset-h: 8vh;
+  --body--ofset-mt: -8vh;
 }

@@ -18,7 +18,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 // spinner
-import {NgxSpinnerModule} from 'ngx-spinner';
+import {NgxSpinnerModule, NgxSpinnerService} from 'ngx-spinner';
 // rating
 import {NgxStarRatingModule} from 'ngx-star-rating';
 // shared
@@ -33,9 +33,6 @@ import {UlSnackComponent} from './shared/component/ul-snack/ul-snack.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import {PromoListComponent} from './source/ui/promo/promo-list/promo-list.component';
-import {PromoFormComponent} from './source/ui/promo/promo-form/promo-form.component';
-import {PromoConfigComponent} from './source/ui/promo/promo-config/promo-config.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {QuicklinkModule} from 'ngx-quicklink';
 import {LoadStrategyService} from './auth';
@@ -49,10 +46,7 @@ import {provideAuth, getAuth} from '@angular/fire/auth';
     UlConfirmComponent,
     OutlineDirective,
     UlBaseComponent,
-    UlSnackComponent,
-    PromoListComponent,
-    PromoFormComponent,
-    PromoConfigComponent
+    UlSnackComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +67,7 @@ import {provideAuth, getAuth} from '@angular/fire/auth';
     MatListModule,
     NgxStarRatingModule,
     MatDialogModule,
-    NgxSpinnerModule,
+    NgxSpinnerModule.forRoot({type: 'ball-spin-clockwise'}),
     MatTableModule,
     MatPaginatorModule,
     QuicklinkModule,
@@ -82,7 +76,7 @@ import {provideAuth, getAuth} from '@angular/fire/auth';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
   ],
-  providers: [BdSidenavService, ShowTagPipe, OutlineDirective, LoadStrategyService],
+  providers: [BdSidenavService, NgxSpinnerService, ShowTagPipe, OutlineDirective, LoadStrategyService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

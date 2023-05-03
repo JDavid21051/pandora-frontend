@@ -12,18 +12,26 @@
         <mat-icon>settings</mat-icon>
       </button>
     </div>
-
   </mat-toolbar>
-
   <mat-sidenav-container class="content--container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list class="w-27rem">
-        <button (click)="showFiller = !showFiller" mat-raised-button>
-          Toggle extra text
-        </button>
+      <mat-nav-list class="w-18rem">
         <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Usuarios
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <button mat-button color="primary" class="block mt-3">
+              <a routerLink="./admin/user/list">Listar</a>
+            </button>
+            <button mat-button color="primary" class="block">
+              <a routerLink="./admin/user/create">Crear</a>
+            </button>
+          </mat-expansion-panel>
           <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
@@ -45,55 +53,20 @@
           <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Feature
+                Colecciones
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <p>I'm visible feature</p>
+            <button mat-button color="primary" class="block mt-3">
+              <a routerLink="./admin/collection">Listar</a>
+            </button>
+            <button mat-button color="primary" class="block">
+              <a routerLink="./admin/collection/create">Crear</a>
+            </button>
           </mat-expansion-panel>
         </mat-accordion>
-
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content class="py-4 px-5">
-      <div class="ul-filter py-2 mb-2">
-        <form [formGroup]="filterForm">
-          <mat-button-toggle-group appearance="legacy" name="filter" class="no-box-shadow bg--transparent gap-3"
-                                   formControlName="filterType" (change)="onChangeFilter($event)">
-            <mat-button-toggle class="toggle--tag btn--warn font-semibold" [value]="0">Todo</mat-button-toggle>
-            <mat-button-toggle class="toggle--tag btn--warn font-semibold" [value]="1">Categoría</mat-button-toggle>
-            <mat-button-toggle class="toggle--tag btn--warn font-semibold" [value]="2">Etiquetas</mat-button-toggle>
-            <mat-button-toggle class="toggle--tag btn--warn font-semibold" [value]="3">En promoción</mat-button-toggle>
-          </mat-button-toggle-group>
-          <mat-accordion>
-            <mat-expansion-panel hideToggle class="no-box-shadow bg-transparent"
-                                 [expanded]="filterForm.controls['filterType'].value === 1">
-              <mat-button-toggle-group appearance="legacy"
-                                       name="category" class="no-box-shadow bg--transparent gap-3 mt-3"
-                                       formControlName="category">
-                <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="bold">Todo</mat-button-toggle>
-                <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="italic">Italic
-                </mat-button-toggle>
-                <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="underline">Underline
-                </mat-button-toggle>
-              </mat-button-toggle-group>
-            </mat-expansion-panel>
-          </mat-accordion>
-          <mat-accordion>
-            <mat-expansion-panel hideToggle class="no-box-shadow bg-transparent"
-                                 [expanded]="filterForm.controls['filterType'].value === 2">
-              <mat-button-toggle-group appearance="legacy" formControlName="tag"
-                                       name="tags" class="no-box-shadow bg--transparent gap-3 mt-3">
-                <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="bold">Todo</mat-button-toggle>
-                <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="italic">Italic
-                </mat-button-toggle>
-                <mat-button-toggle class="toggle--tag btn--accent font-semibold" value="underline">Underline
-                </mat-button-toggle>
-              </mat-button-toggle-group>
-            </mat-expansion-panel>
-          </mat-accordion>
-
-        </form>
-      </div>
+    <mat-sidenav-content class="body--height py-4 px-5">
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

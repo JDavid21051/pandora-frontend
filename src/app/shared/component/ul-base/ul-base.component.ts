@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {NgxSpinnerService} from 'ngx-spinner';
 import {AbstractControl, FormGroup} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-ul-base',
@@ -20,7 +20,7 @@ export class UlBaseComponent implements OnInit {
 
   public showSuccess(message: string): void {
     this._snackBar.open(message || this.textAlt, 'Ok', {
-      horizontalPosition: 'right',
+      horizontalPosition: 'left',
       verticalPosition: 'top',
       panelClass: ['snack', 'snack--success'],
     });

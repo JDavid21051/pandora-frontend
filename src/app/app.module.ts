@@ -1,44 +1,46 @@
 // angular
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from '@angular/forms';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {LayoutModule} from '@angular/cdk/layout';
 import {HttpClientModule} from '@angular/common/http';
-// material
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatInputModule} from '@angular/material/input';
+import {NgModule} from '@angular/core';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import {getAuth,provideAuth} from '@angular/fire/auth';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCardModule} from '@angular/material/card';
-import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {LayoutModule} from '@angular/cdk/layout';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatPaginatorModule} from '@angular/material/paginator';
+// material
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {QuicklinkModule} from 'ngx-quicklink';
 // spinner
 import {NgxSpinnerModule, NgxSpinnerService} from 'ngx-spinner';
 // rating
 import {NgxStarRatingModule} from 'ngx-star-rating';
-// shared
-import {BdSidenavService} from './shared/service';
-import {UlConfirmComponent, UlBaseComponent} from './shared/component';
-import {ShowTagPipe} from './shared/pipe';
-import {OutlineDirective} from './shared/directive';
+
+import {environment} from '../environments/environment';
+
 // component
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {UlSnackComponent} from './shared/component/ul-snack/ul-snack.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
-import {DragDropModule} from '@angular/cdk/drag-drop';
-import {QuicklinkModule} from 'ngx-quicklink';
 import {LoadStrategyService} from './auth';
-import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
-import {environment} from '../environments/environment';
-import {provideAuth, getAuth} from '@angular/fire/auth';
+import {UlBaseComponent,UlConfirmComponent} from './shared/component';
+import {UlSnackComponent} from './shared/component/ul-snack/ul-snack.component';
+import {OutlineDirective} from './shared/directive';
+import {ShowTagPipe} from './shared/pipe';
+// shared
+import {BdSidenavService} from './shared/service';
 
 @NgModule({
   declarations: [

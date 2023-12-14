@@ -1,31 +1,86 @@
-<div class="flex flex-column w-15rem min-h-16rem max-h-25rem justify-content-between">
-  <div class="flex w-12 justify-content-between flex-row">
+<mat-card class="no-box-shadow">
+  <mat-card-header class="flex w-12 align-items-center justify-content-between flex-row mb-2">
+    <mat-card-title class="m-0">
+      Crear usuario
+    </mat-card-title>
     <div class="flex">
-      <h1>Crear usuario</h1>
-    </div>
-    <div class="flex">
-      <button mat-button mat-raised-button color="warn" (click)="onClickBack()" class="h-2rem">
-        Volver
+      <button mat-button mat-raised-button color="warn" (click)="onClickBack()"
+              class="flex h-2rem align-items-center justify-content-center">
+        <mat-icon aria-hidden="false" aria-label="Cerrar modal" fontIcon="close"></mat-icon>
       </button>
     </div>
-  </div>
-  <form [formGroup]="authForm" novalidate (ngSubmit)="onClickSubmit()" class="w-12 flex flex-column">
-    <div class="flex flex-column gap-1">
-      <mat-form-field appearance="outline" class="w-full">
-        <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Nombre del usuario" formControlName="name">
-        <mat-icon matSuffix>account_circle</mat-icon>
-        <mat-hint>Solo letras, min 6 caracteres</mat-hint>
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="w-full">
-        <mat-label>Cargo</mat-label>
-        <input matInput placeholder="Cargo" formControlName="job" id="job" name="job">
-        <mat-icon matSuffix>account_circle</mat-icon>
-        <mat-hint>Solo letras y números, min 6 caracteres</mat-hint>
-      </mat-form-field>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="flex flex-column w-15rem  max-h-25rem justify-content-between">
+      <form [formGroup]="authForm" novalidate (ngSubmit)="onClickSubmit()" class="w-12 flex flex-column">
+        <div class="flex flex-column gap-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre del usuario" minlength="5" maxlength="199" formControlName="name">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-hint>Solo letras, min 6 caracteres</mat-hint>
+          </mat-form-field>
+          <mat-error [class.hidden]="!fieldHasError('name')">El nombre presenta un error</mat-error>
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Cargo</mat-label>
+            <input matInput placeholder="Cargo" formControlName="job" id="job" name="job">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-hint>Solo letras y números, min 6 caracteres</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Rol</mat-label>
+            <mat-select id="rol">
+              <mat-option *ngFor="let rol of rolList" [value]="rol">{{rol}}</mat-option>
+            </mat-select>
+            <mat-hint>Seleccione un rol</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput></textarea>
+            <mat-hint>Solo letras, max 250 y min 8 caracteres</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Contraseña</mat-label>
+            <input matInput placeholder="Contraseña" formControlName="password" id="password" name="password">
+            <mat-hint>Solo letras, max 250 y min 8 caracteres</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input matInput placeholder="Contraseña" formControlName="rePassword" id="rePassword" name="rePassword">
+            <mat-hint>Digite la misma contraseña nueva mente</mat-hint>
+          </mat-form-field>
+          <div>
+            <label for="color">
+              Color base
+            </label>
+            <input type="color" id="color" name="color" class="block w-full">
+          </div>
+          <div>
+            <label>
+              <input type="checkbox" name="notify">
+              Notificar creación
+            </label>
+          </div>
+          <label>
+            <strong>
+              Genero
+            </strong>
+          </label>
+          <div class="block w-full mb-2">
+            <label for="gender1">
+              Hombre
+              <input type="radio" id="gender1" name="gender" value="1">
+            </label>
+            <label for="gender2">
+              Mujer
+              <input type="radio" id="gender2" name="gender" value="0">
+            </label>
+          </div>
+        </div>
+        <button mat-raised-button color="accent" type="submit" class="w-full mb-3" [disabled]="authForm.invalid">
+          Crear usuario
+        </button>
+      </form>
     </div>
-    <button mat-raised-button color="accent" class="w-full" [disabled]="authForm.invalid">
-      Crear usuario
-    </button>
-  </form>
-</div>
+  </mat-card-content>
+</mat-card>

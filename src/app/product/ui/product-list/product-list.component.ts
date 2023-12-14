@@ -1,17 +1,17 @@
 import {HttpResponse} from '@angular/common/http';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {MatButtonToggleChange} from '@angular/material/button-toggle';
-import {UlConfirmComponent} from 'src/app/shared/component';
-import {ActivatedRoute, Params, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MatButtonToggleChange} from '@angular/material/button-toggle';
+import {MatDialog} from '@angular/material/dialog';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {pairwise, startWith} from 'rxjs';
+import {ProductListRepository} from 'src/app/service';
+import {UlConfirmComponent} from 'src/app/shared/component';
 import {FILTER_TYPE_CONST} from 'src/app/shared/const/filter-type.const';
 import {ProductInterface} from 'src/app/shared/interface';
-import {ProductListRepository} from 'src/app/service';
+import {FilterTypeInterface} from 'src/app/shared/interface/general/filter-type.interface';
 import {ShoppingCarService} from 'src/app/shared/service';
-import {FilterTypeInterface} from 'src/app/shared/interface/filter-type.interface';
 
 @Component({
   selector: 'app-product-list',

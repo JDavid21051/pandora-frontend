@@ -9,5 +9,8 @@
     {{' //name: ' + item.first_name}}
     {{item.last_name}}
     {{' //mail: ' + item.email}}
+    <button mat-button mat-icon-button color="accent" (click)="onClickUpdate(item.id?.toString() ?? '')">
+      <mat-icon fontIcon="edit"></mat-icon>
+    </button>
   </mat-card>
 </div>

@@ -1,7 +1,9 @@
 import {Component} from '@angular/core';
-import {BdSidenavService, ShoppingCarService} from '../../shared/service';
-import {ProductInterface} from '../../shared/interface';
+import {MatSidenav} from '@angular/material/sidenav';
 import {Router} from '@angular/router';
+
+import {ProductInterface} from '../../shared/interface';
+import {BdSidenavService, ShoppingCarService} from '../../shared/service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +13,11 @@ import {Router} from '@angular/router';
 export class HeaderComponent {
   shoppingCarProduct: ProductInterface[] = [];
 
-  constructor(private readonly sidebar: BdSidenavService, private readonly router: Router, private readonly shoppingCarService: ShoppingCarService) {
+  constructor(
+    private readonly sidebar: BdSidenavService,
+    private readonly router: Router,
+    private readonly matSidebar: MatSidenav,
+    private readonly shoppingCarService: ShoppingCarService) {
     this.shoppingCarService.onListChange.subscribe({
       next: (response: ProductInterface[]) => {
         this.shoppingCarProduct = response;
@@ -24,7 +30,7 @@ export class HeaderComponent {
   }
 
   onClickSidebarToggle(): void {
-    this.sidebar.toggle();
+    this.matSidebar.toggle().then();
   }
 
   onClickHome(): void {

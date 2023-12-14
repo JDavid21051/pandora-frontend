@@ -12,10 +12,11 @@
  * IDE:          WebStorm
  */
 import {Injectable} from '@angular/core';
-import {ProductInterface} from '../interface';
-import {BehaviorSubject, Observable, of} from 'rxjs';
-import {ObsResponseInterface} from '../interface';
 import {ActivatedRoute} from '@angular/router';
+import {BehaviorSubject, Observable, of} from 'rxjs';
+
+import {ProductInterface} from '../interface';
+import {ObsResponseInterface} from '../interface';
 
 export interface responseInterface<T> {
   status: number,
@@ -29,17 +30,10 @@ export interface responseInterface<T> {
 })
 export class ShoppingCarService {
   private productList: ProductInterface[] = [];
-  public shoppingCar$$: BehaviorSubject<ObsResponseInterface<ProductInterface[]>>;
+  // public shoppingCar$$: BehaviorSubject<ObsResponseInterface<ProductInterface[]>>;
   public onListChange: BehaviorSubject<ProductInterface[]>;
 
   constructor(public active: ActivatedRoute) {
-    const initResponse: ObsResponseInterface<ProductInterface[]> = {
-      status: 0,
-      body: null,
-      success: false,
-      error: ''
-    };
-    this.shoppingCar$$ = new BehaviorSubject(initResponse);
     this.onListChange = new BehaviorSubject<ProductInterface[]>([]);
   }
 

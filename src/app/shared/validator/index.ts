@@ -4,16 +4,12 @@
  */
 
 /*
- * Project:      nali-store
+ * Project:      pandora-frontend
  * Developed by: Juan David Pelaez Cumbe
- * Date:         18/03/23 - 12:19 PM
+ * Date:         4/05/23 - 12:08 AM
  * Module name:  index
  * File name:    index.ts
  * IDE:          WebStorm
  */
 
-export * from './accounts/accounts.service';
-export * from './auth/auth.service';
-export * from './product/product-list.repository';
-export * from './user/user.service';
-
+export * from './equal.validators';

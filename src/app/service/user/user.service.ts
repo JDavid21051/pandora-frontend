@@ -1,12 +1,14 @@
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 
-import {ParamsInterface, UserDataInterface, UserListInterface} from '../../shared/interface';
-import {ResultHttpInterface} from '../../shared/interface';
+import {ParamsInterface, ResultHttpInterface, UserDataInterface, UserListInterface} from '../../shared/interface';
 
-@Injectable()
-export class AuthService {
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
   private userPath = 'users/';
   private urlBase = 'https://reqres.in/api/';
 
@@ -35,23 +37,20 @@ export class AuthService {
     });
   }
 
-
-  getById(userId: string): Observable<ResultHttpInterface<UserListInterface>> {
-    return this.http.get<ResultHttpInterface<UserListInterface>>(this.urlBase + this.userPath, {
-      params: this.reformatParams(userId)
-    });
+  getById(userId: string): Observable<UserListInterface> {
+    return this.http.get<UserListInterface>(this.urlBase + this.userPath + userId);
   }
 
   upload(userId: string, userData: UserDataInterface): Observable<ResultHttpInterface<UserListInterface>> {
-    return this.http.put<ResultHttpInterface<UserListInterface>>(this.urlBase + this.userPath + '/' + userId, userData);
+    return this.http.put<ResultHttpInterface<UserListInterface>>(this.urlBase + this.userPath + userId, userData);
   }
 
   partialUpload(userId: string, userData: UserDataInterface): Observable<ResultHttpInterface<UserListInterface>> {
-    return this.http.patch<ResultHttpInterface<UserListInterface>>(this.urlBase + this.userPath + '/' + userId, userData);
+    return this.http.patch<ResultHttpInterface<UserListInterface>>(this.urlBase + this.userPath + userId, userData);
   }
 
   delete(userId: string, userData: UserDataInterface): Observable<ResultHttpInterface<boolean>> {
-    return this.http.delete<ResultHttpInterface<boolean>>(this.urlBase + this.userPath + '/' + userId, {
+    return this.http.delete<ResultHttpInterface<boolean>>(this.urlBase + this.userPath + userId, {
       params: this.reformatParams(userData)
     });
   }

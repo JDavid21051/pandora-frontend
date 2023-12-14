@@ -17,6 +17,7 @@
 @import './assets/scss/variables';
 @import './assets/scss/pandora';
 @import './assets/scss/theme';
+
 html, body {
   height: 100%;
 }
@@ -106,4 +107,14 @@ app-root {
     color: #061d50 !important;
     box-shadow: #fff 0 5px 3px -3px;
   }
+}
+
+
+// material
+mat-dialog-container.mat-dialog-container {
+  padding: 0 !important;
+}
+
+.mat-card-header-text {
+  margin: 0 !important;
 }

@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import {UlBaseComponent} from '../../../../shared/component';
-import {UserListInterface} from '../../../../shared/interface';
-import {AuthService} from '../../../../service/auth/auth.service';
-import {Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NgxSpinnerService} from 'ngx-spinner';
-import {lastValueFrom} from 'rxjs';
-import {MatDialog} from '@angular/material/dialog';
+import {lastValueFrom, switchMap} from 'rxjs';
+import {AuthService} from 'src/app/service';
+import {UserService} from 'src/app/service/user/user.service';
+import {UlBaseComponent} from 'src/app/shared/component';
+import {UserListInterface} from 'src/app/shared/interface';
+
 import {UserFormComponent} from '../user-form/user-form.component';
 
 @Component({
@@ -18,8 +19,8 @@ export class UserListComponent extends UlBaseComponent implements OnInit {
   public userList: UserListInterface[] = [];
 
   constructor(
-    private readonly userService: AuthService,
-    private readonly router: Router,
+    private readonly userService: UserService,
+    private readonly authService: AuthService,
     private readonly dialog: MatDialog,
     protected override _snackBar: MatSnackBar,
     protected override _spinner: NgxSpinnerService) {
@@ -34,11 +35,12 @@ export class UserListComponent extends UlBaseComponent implements OnInit {
   override ngOnInit(): void {
     super.ngOnInit();
     this.getUserList().then();
+    this.onLogin();
   }
 
   private async getUserList(): Promise<void> {
     this.spinnerOn().then();
-    setTimeout(()=> {
+    setTimeout(() => {
       lastValueFrom(this.userService.list({page: 1, per_page: 12})).then(
         (response) => {
           if (response && response.total > 0) {
@@ -61,7 +63,11 @@ export class UserListComponent extends UlBaseComponent implements OnInit {
 
   onClickCreateCol(): void {
     const dialogRef = this.dialog.open(UserFormComponent, {
-      data: null,
+      data: {
+        userSelected: null,
+        isEditing: false
+      },
+      disableClose: true
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
@@ -69,13 +75,49 @@ export class UserListComponent extends UlBaseComponent implements OnInit {
     });
   }
 
-  onClickUpdate(): void {
-    const dialogRef = this.dialog.open(UserFormComponent, {
-      data: null,
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+  onClickUpdate(userSelected: string): void {
+    if (userSelected && userSelected !== '') {
+      this.userService.getById(userSelected)
+        .pipe(
+          switchMap((response) => {
+            return this.dialog.open(UserFormComponent, {
+              data: {
+                userSelected: response,
+                isEditing: false
+              },
+            }).afterClosed();
+            /*dialogRef.afterClosed()
+              .subscribe({
+                next: (response) => {
+                  console.log('The dialog was closed');
+                  console.log(response);
+                }
+              });*/
+          })
+        )
+        .subscribe({
+          next: (response) => {
+            console.log(response);
+          }
+        });
+      // a la vez
+      /*zip(
+        this.userService.getById(userSelected),
+        this.dialog.open(UserFormComponent, {
+          data: null,
+        }).afterClosed()
+      ).subscribe((response) => {
+        console.log(response[0]);
+        console.log(response[1]);
+      });*/
+    }
+  }
+
+  onLogin(): void {
+    this.authService.getById('').subscribe({
+      next: (response) => {
+        console.log(response);
+      }
     });
   }
 

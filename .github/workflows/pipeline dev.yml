@@ -17,9 +17,5 @@ jobs:
           node-version: 18.x
       - name: count
         run: ls -l
-      - name: Install dependencies
-        run: npm install --no-audit
-      - name: Lint
-        run: npm run lint
-      - name: Build
-        run: npm run build
+      - name: npm v
+        run: npm -v

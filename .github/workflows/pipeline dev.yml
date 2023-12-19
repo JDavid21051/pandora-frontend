@@ -1,0 +1,23 @@
+name: Develop pipeline deploy
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.1
+        with:
+          node-version: 18.17.1
+      - name: Install deps
+        uses: npm install
+      - name: Lint
+        uses: npm run lint

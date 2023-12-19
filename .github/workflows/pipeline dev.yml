@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 18.x
       - name: Install dependencies
-        run: npm install --no-audit --no-found --no-optional
+        run: npm install --no-audit
       - name: Lint
         run: npm run lint
       - name: Build
